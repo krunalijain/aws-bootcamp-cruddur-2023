@@ -53,6 +53,7 @@ When it displays the error message in that only you can find how to to troublesh
 ![](https://user-images.githubusercontent.com/115455157/219768061-d7540fca-b311-410c-a98b-97b543f1183f.jpg)
 
 By follwoing Andrews's **"Required homework"** video it became so easy specially for beginner level students to undersatnd and install and set AWS CLI on Gitpod. Here's that video : https://www.youtube.com/watch?v=OdUnNuKylHg&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=14 
+
 There were some most used commands like ```aws configure``` : to set AWS credentials; ```aws sts get-caller-identity``` : for viewing the AWS Account Identity and so on...
 
 **Problem faced while this AWS CLI Setup ?** 
