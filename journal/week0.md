@@ -41,7 +41,7 @@ After that to set MFA you can go to particular **User -> Security Credentials ->
 - Added permission policy as **Security Audit**.
 - Then give **role name** and **Tags** and click on **Create role**. 
 
-## Error Faced after creating IAM user, role
+**Error Faced after creating IAM user, role**
 It does not gives you access to create billing from IAM User account.
 
 **How to solve?** 
@@ -50,6 +50,7 @@ When it displays the error message in that only you can find how to to troublesh
 
 **2.Installeed AWS CLI in Gtpod.**
 ![](https://user-images.githubusercontent.com/115455157/219768061-d7540fca-b311-410c-a98b-97b543f1183f.jpg)
+By using ```aws configure``` 
 
 
 
