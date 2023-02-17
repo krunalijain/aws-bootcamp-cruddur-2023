@@ -62,7 +62,8 @@ As Gitpod doesn't saves everything unless you commit the code(I think) or save t
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       unzip awscliv2.zip
       sudo ./aws/install
-      cd $THEIA_WORKSPACE_ROOT~~~
+      cd $THEIA_WORKSPACE_ROOT 
+      ~~~
       
       OR you can Save it permanently into Gitpod.(steps shown in Andrew's video : the above mentioned link)
 
