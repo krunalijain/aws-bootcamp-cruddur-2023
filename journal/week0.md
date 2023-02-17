@@ -27,6 +27,7 @@ This was mainly focused on ***Billing and Architecture***
 **1. Created IAM User, Role and MFA**
 
 ![](https://user-images.githubusercontent.com/115455157/219755386-d580ce7e-0c2a-4f67-bed6-4d1901565de4.jpg)
+
 So, it is very easy to create a IAM User and set MFA (Multi Factor Authentication) to it. I followed the below given steps to create this :
 - Login as a **root user** into AWS account.
 - Search for **IAM service** and go to **Users**.
@@ -50,6 +51,7 @@ When it displays the error message in that only you can find how to to troublesh
 
 **2.Installeed AWS CLI in Gtpod.**
 ![](https://user-images.githubusercontent.com/115455157/219768061-d7540fca-b311-410c-a98b-97b543f1183f.jpg)
+
 By follwoing Andrews's **"Required homework"** video it became so easy specially for beginner level students to undersatnd and install and set AWS CLI on Gitpod. Here's that video : https://www.youtube.com/watch?v=OdUnNuKylHg&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=14 
 
 
