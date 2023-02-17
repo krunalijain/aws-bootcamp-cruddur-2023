@@ -24,13 +24,13 @@ This was mainly focused on ***Billing and Architecture***
 - Hands on example for Napkin Diagram. 
 
 ## Tasks Completed in Week-0
-1. **Created IAM User, Role and MFA**
+**1. Created IAM User, Role and MFA**
 
 ![](https://user-images.githubusercontent.com/115455157/219755386-d580ce7e-0c2a-4f67-bed6-4d1901565de4.jpg)
 So, it is very easy to create a IAM User and set MFA (Multi Factor Authentication) to it. I followed the below given steps to create this :
 - Login as a **root user** into AWS account.
 - Search for **IAM service** and go to **Users**.
-- **Create a new User** by giving the appropriate permissions.
+- **Create a new User** by giving the appropriate **(Admin)** permissions.
 After that to set MFA you can go to particular **User -> Security Credentials -> Enable MFA**.
 - Fill the required details and **Scan QR code** from the authentication app in your mobile. (Here you **need to install authentication application in your mobile** to connect it with your IAM User).
 - **Enter two MFA Codes** when asked and your MFA is set.
@@ -47,5 +47,10 @@ It does not gives you access to create billing from IAM User account.
 **How to solve?** 
 When it displays the error message in that only you can find how to to troubleshoot that error. In this case you have to allow permission for billing configuration access from your root account.
 **Enable manage concole access** from security credentials of that IAM User.
+
+**2.Installeed AWS CLI in Gtpod.**
+![]((https://user-images.githubusercontent.com/115455157/219767827-3a93fadb-60a6-4992-b05a-59884f0acc0f.jpg))
+
+
 
 
