@@ -27,4 +27,13 @@ This was mainly focused on ***Billing and Architecture***
 1. **Created IAM User, Role and MFA**
 
 ![](https://user-images.githubusercontent.com/115455157/219755386-d580ce7e-0c2a-4f67-bed6-4d1901565de4.jpg)
+So, it is very easy to create a IAM User and set MFA (Multi Factor Authentication) to it. I followed the below given steps to create this :
+- Login as a **root user** into AWS account.
+- Search for **IAM service** and go to **Users**.
+- **Create a new User** by giving the appropriate permissions.
+After that to set MFA you can go to particular **User -> Security Credentials -> Enable MFA**.
+- Fill the required details and **Scan QR code** from the authentication app in your mobile. (Here you **need to install authentication application in your mobile** to connect it with your IAM User).
+- **Enter two MFA Codes** when asked and your MFA is set.
+
+
 
