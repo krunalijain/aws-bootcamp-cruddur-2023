@@ -49,8 +49,8 @@ When it displays the error message in that only you can find how to to troublesh
 **Enable manage concole access** from security credentials of that IAM User.
 
 **2.Installeed AWS CLI in Gtpod.**
-![]!(![gitpod unzzipped week(0)](https://user-images.githubusercontent.com/115455157/219768061-d7540fca-b311-410c-a98b-97b543f1183f.jpg)
-)
+![](https://user-images.githubusercontent.com/115455157/219768061-d7540fca-b311-410c-a98b-97b543f1183f.jpg)
+
 
 
 
