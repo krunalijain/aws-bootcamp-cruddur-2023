@@ -22,3 +22,11 @@ This was mainly focused on ***Billing and Architecture***
 - C4 models. 
 - How to create diagrams in Lucid Charts. 
 - Hands on example for Napkin Diagram. 
+
+## Tasks Completed in Week-0
+1. **Created IAM User, Role and MFA**
+
+![IAM - User, MFA created!](![IAM - user , mfa created](https://user-images.githubusercontent.com/115455157/219755386-d580ce7e-0c2a-4f67-bed6-4d1901565de4.jpg)
+)
+
+
