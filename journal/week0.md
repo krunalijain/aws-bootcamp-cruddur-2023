@@ -57,13 +57,12 @@ There were some most used commands like ```aws configure``` : to set AWS credent
 
 **Problem faced while this AWS CLI Setup ?** 
 As Gitpod doesn't saves everything unless you commit the code(I think) or save that permanently in Gitpod. So when I took break after installing and setting up my AWS CLI and all the account credentials and when got back to contiue I found there AWS CLI is not installed. 
-**Solution** Either you have to re-install AWS CLI by following these commands 
-~~~ cd /workspace
+**Solution** Either you have to re-install AWS CLI by following these commands ``` cd /workspace
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       unzip awscliv2.zip
       sudo ./aws/install
-      cd $THEIA_WORKSPACE_ROOT 
-      ~~~
+      cd $THEIA_WORKSPACE_ROOT ```
+
       
       OR you can Save it permanently into Gitpod.(steps shown in Andrew's video : the above mentioned link)
 
