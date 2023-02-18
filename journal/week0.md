@@ -78,7 +78,15 @@ Then there's another file named ```alarm-config.json``` this file contains json 
 
 After creating these three files in ```aws/json``` folder commit them to your git repository.
 
-**4. Created SNS topic billinf alarm**
+**4. Re-created Cruddur Logical Diagram.**
+
+This helped me to explore a bit of Lucid Charts.
+
+![](https://user-images.githubusercontent.com/115455157/219839638-f585a8a8-3693-46d4-b798-7d3403aa9b4b.jpg)
+
+This is just a snapshot for quick reference. I am also providing my Lucid Chart link for better 'proof of work' : 
+
+
 
 
 
