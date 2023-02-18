@@ -85,6 +85,16 @@ This helped me to explore a bit of Lucid Charts.
 ![](https://user-images.githubusercontent.com/115455157/219839638-f585a8a8-3693-46d4-b798-7d3403aa9b4b.jpg)
 
 This is just a snapshot for quick reference. I am also providing my Lucid Chart link for better 'proof of work' : 
+https://lucid.app/lucidchart/6a899c2f-4373-4fa2-bf36-21b1b69faea4/edit?viewport_loc=-386%2C113%2C2400%2C1004%2C0_0&invitationId=inv_70fb3aef-1ef5-413c-a692-9f682cd01aeb
+
+**5. Created a Napkin Design**
+
+This is my Napkin Design depicting that the ***User(me)*** will upload my application/website in the ***cloud(AWS Cloud Shape)*** where it will pass the ***Authentication*** and segregate via ***Load Balancer*** as a ***frontend*** which is connected to ***AppSync*** and provide the interface for real-time AND as a ***backend*** which is connected to the ***DataBase*** for storing the information that is also connected with the Appsync. 
+This is a rough diagram (that's how a Napkin design should be like) designed as per my knowledge. 
+
+![](https://user-images.githubusercontent.com/115455157/219842138-453cfa13-4f65-4be6-bb00-d1464f8bee8b.jpeg)
+
+
 
 
 
