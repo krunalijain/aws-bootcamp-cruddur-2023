@@ -94,6 +94,13 @@ This is a rough diagram (that's how a Napkin design should be like) designed as 
 
 ![](https://user-images.githubusercontent.com/115455157/219842138-453cfa13-4f65-4be6-bb00-d1464f8bee8b.jpeg)
 
+**6. Attended Pricing and Security Quiz.**
+It was very informaative watching **Chirag Nayyar's** pre-recorded video about the Pricing Considerations and **Ashish Rajan's** pre-recorded video about Security Considerations. Those videos really help me understand the basics related to Pricing and Security and to clear the Quiz. Below are the links added of their videos. 
+
+**Chirag's Pricing Video :** https://youtu.be/OVw3RrlP-sI
+**Ashish's Security Video :** https://youtu.be/4EMWBYVggQI
+
+
 
 
 
