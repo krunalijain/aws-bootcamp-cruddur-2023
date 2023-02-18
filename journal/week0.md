@@ -98,6 +98,7 @@ This is a rough diagram (that's how a Napkin design should be like) designed as 
 It was very informaative watching **Chirag Nayyar's** pre-recorded video about the Pricing Considerations and **Ashish Rajan's** pre-recorded video about Security Considerations. Those videos really help me understand the basics related to Pricing and Security and to clear the Quiz. Below are the links added of their videos. 
 
 **Chirag's Pricing Video :** https://youtu.be/OVw3RrlP-sI
+
 **Ashish's Security Video :** https://youtu.be/4EMWBYVggQI
 
 
