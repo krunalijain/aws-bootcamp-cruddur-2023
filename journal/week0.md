@@ -50,6 +50,7 @@ When it displays the error message in that only you can find how to to troublesh
 **Enable manage concole access** from security credentials of that IAM User.
 
 **2.Installeed AWS CLI in Gtpod.**
+
 ![](https://user-images.githubusercontent.com/115455157/219768061-d7540fca-b311-410c-a98b-97b543f1183f.jpg)
 
 By follwoing Andrews's **"Required homework"** video it became so easy specially for beginner level students to undersatnd and install and set AWS CLI on Gitpod. Here's that video : https://www.youtube.com/watch?v=OdUnNuKylHg&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=14 
@@ -76,6 +77,8 @@ Then there's another file named ```alarm-config.json``` this file contains json 
 ![](https://user-images.githubusercontent.com/115455157/219837975-8811ba20-0e2b-453e-a6eb-95096af494c5.jpg)
 
 After creating these three files in ```aws/json``` folder commit them to your git repository.
+
+**4. Created SNS topic billinf alarm**
 
 
 
