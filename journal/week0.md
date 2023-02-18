@@ -100,13 +100,7 @@ It was very informative watching **Chirag Nayyar's** pre-recorded video about th
 
 **Chirag's Pricing Video :** https://youtu.be/OVw3RrlP-sI
 
-**Ashish's Security Video :** https://youtu.be/4EMWBYVggQI
-
-
-
-
-
-
-
+**Ashish's Security Video :** https://youtu.be/4EMWBYVggQI 
+---
 
 
