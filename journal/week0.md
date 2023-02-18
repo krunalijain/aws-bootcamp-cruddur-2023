@@ -66,4 +66,5 @@ As Gitpod doesn't saves everything unless you commit the code(I think) or save t
          OR you can Save it permanently into Gitpod.(steps shown in Andrew's video : the above mentioned link)
          
 **3. Set Billing alarm and Budget via CLI**
-Here we created two different files 
+Here we created a folder named ```aws/json``` in which ```budget.json``` is a json file that creates a budget via CLI and another one is ```budget-notifications-with-subscribers.json``` which helps to notify on email if we exceed the budget created before.
+
