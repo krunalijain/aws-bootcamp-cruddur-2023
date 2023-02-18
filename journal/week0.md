@@ -64,3 +64,6 @@ As Gitpod doesn't saves everything unless you commit the code(I think) or save t
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT```
          OR you can Save it permanently into Gitpod.(steps shown in Andrew's video : the above mentioned link)
+         
+**3. Set Billing alarm and Budget via CLI**
+Here we created two different files 
