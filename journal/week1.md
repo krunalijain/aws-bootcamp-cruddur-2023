@@ -28,21 +28,39 @@ This error was a hectic task for me to solve as it consumed lot of time to solve
  ![](https://user-images.githubusercontent.com/115455157/221343242-939ba8a9-acfe-424f-b29b-be03d53a5ed8.jpg)
  
  ## #2 Installed DynamoDB on Gitpod
- Installed and ran DynamoDB via Gitpod and **created a table "Musics"**. While running the code to create a DynamoDB I came accross an error message as **"Invalid Compose Project"**. 
+ Installed and ran DynamoDB via Gitpod and **created a table "Musics"**. 
+ Here I bymistankely had created the "Music" table in another directory and then later realized that it's the wrong directory. So again tried creating the same table in different directory but tha didn't work.
  
  ### Troubleshooted Error
- So the error stated "Invalid Compose Project" and something like undefined vloume db has been used, after researching from the stackoverflow I found the soulution. The problem was in the code where we had to define volume initially and not in the end. Here's  the code from the `docker-compose.yml` file
+ So I had to change the name of the table because it didn;t allow me to create a same name table in different directory. So I changed **"Music" to "Musics"**, haha.
+ then I was good to go. Created a new table and listed items and it was all good.
+ 
+ ## #3 Installed Postgres
+ We also installed and ran Postgres on Gitpod. But I faced some issue while running he Postgres installing script.
+ ### Troubleshooted Error
+ So the error stated "Invalid Compose Project" and something like undefined vloume db has been used, after researching from the stackoverflow I found the soulution. The problem was in the code where we had to define volume before `networks` section and not in the end. Here's  the code from the `docker-compose.yml` file
  ```
  volumes:
-      - "./docker/dynamodb:/home/dynamodblocal/data"
-    working_dir: /home/dynamodblocal
   db:
-    image: postgres:13-alpine
-    restart: always
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
+    driver: local
 ```
+ Then later on to work with Postgres you need to have a client library to interact with a server, for this we ran few lines of code :
+ ```
+   - name: postgres
+    init: |
+      curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+      echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+      sudo apt update
+      sudo apt install -y postgresql-client-13 libpq-dev
+ ```
+ But after this the `psql` command didn't work so we had to mannually connect to Postgres Database and then we were good to go. We ran few of the Postgres commands to check whether it's working. Here's the reference picture :
+ 
+ ![](https://user-images.githubusercontent.com/115455157/221344556-36ecbed2-4289-4c9a-b5e9-a148dbe9e45c.jpg)
+ 
+ 
+
+ 
+
 
 
 
