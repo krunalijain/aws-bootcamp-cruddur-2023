@@ -68,7 +68,11 @@ This error was a hectic task for me to solve as it consumed lot of time to solve
   
 **Pricing Video link :** https://www.youtube.com/watch?v=OAMHu1NiYoI&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=24 
   
+## #5 Watched Ashish's security consideration video 
+In this I got to know about Snyk, Clair, AWS Secrete manager that helps in managing the security and detecting the vulnerabilities in are conatiner/code. 
+Also helped me to solve the Security Quiz.
 
+**Security Video Link :** https://www.youtube.com/watch?v=OjZz4D0B-cA&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=25
  
  
 
