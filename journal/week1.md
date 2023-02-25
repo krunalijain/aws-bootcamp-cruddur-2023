@@ -5,6 +5,7 @@
 This live session was a leveled up compared to Week-0. Here we got to know about the working of **Guest OS, Host OS and the Containers**. We also **created a Docker file** in this instructional live video. Also ran some of the **Python scripts**. Experienced the guidance from the Docker experts : ***James Spurin*** and ***Edith Puclla***. Installed the Docker Extension in Gtipod. And understood the working of code in Dockerfile. 
 
 ## Tasks Completed
+## #1 Launched Gitpod and Implemented Notifications.
 We built an image via Gitpod. **Launched the micro blogging app - Cruddur on a localhost**. For this we created `frontend-react-js` file and a `backend-flask` file which were connected. There was a `docker-compose.yml` file which included both frontend and backend file's links. We need to **compose up** to activate the ports that helped us to run the Cruddur app. The `port 4567` was for the backend and the `port 3000` was for the frontend.
 
 Then, we set the notifications feature in this cruddur app. While setting this notification I faced few errors which later on I managed to troubleshoot and some of the bootcampers helped me to find and solve the error.
@@ -25,6 +26,23 @@ This error was a hectic task for me to solve as it consumed lot of time to solve
  So this was the thing I had skipped and it lead me to **404 Not ofund** error. After solving the frontend looked like this :
  
  ![](https://user-images.githubusercontent.com/115455157/221343242-939ba8a9-acfe-424f-b29b-be03d53a5ed8.jpg)
+ 
+ ## #2 Installed DynamoDB on Gitpod
+ Installed and ran DynamoDB via Gitpod and **created a table "Musics"**. While running the code to create a DynamoDB I came accross an error message as **"Invalid Compose Project"**. 
+ 
+ ### Troubleshooted Error
+ So the error stated "Invalid Compose Project" and something like undefined vloume db has been used, after researching from the stackoverflow I found the soulution. The problem was in the code where we had to define volume initially and not in the end. Here's  the code from the `docker-compose.yml` file
+ ```
+ volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+```
 
 
 
