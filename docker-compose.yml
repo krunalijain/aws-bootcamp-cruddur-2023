@@ -9,6 +9,7 @@ services:
       OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
     build: ./backend-flask
     ports:
+    
       - "4567:4567"
     volumes:
       - ./backend-flask:/backend-flask
