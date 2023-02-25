@@ -57,6 +57,15 @@ This error was a hectic task for me to solve as it consumed lot of time to solve
  
  ![](https://user-images.githubusercontent.com/115455157/221344556-36ecbed2-4289-4c9a-b5e9-a148dbe9e45c.jpg)
  
+  ### Troubleshooted Error : Gitpod error while commiting
+  
+  ![](https://user-images.githubusercontent.com/115455157/221345464-6880eeac-d5a8-4deb-be2d-735d71fd84f3.jpg)
+  
+  I got this error maybe because I siumltaneously made changes in the repositories from the gitpod as well as from the github. So to overcome this I had to merge the branches. Because I guess there were two branches created unknowingly. so I ran `git pull` command then it gave me some hints to solve my issue. I proceeded with `git config pull.rebase false` to merge the branches then I did `git pull` and `git push` and it showed **"Everything is up to date"**.
+  
+  
+
+ 
  
 
  
