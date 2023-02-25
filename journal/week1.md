@@ -17,7 +17,7 @@ There was a problem when I ran the port 3000 for the frontend thing and I could 
 
 This error was a hectic task for me to solve as it consumed lot of time to solve and understand. Though it was a silly mistake that I did - there's a file under the `frontend-react-js` -> `app.js` in this file I had skipped one code block 
 ```
-{
+  {
     path: "/",
     element: <HomeFeedPage />
   },
