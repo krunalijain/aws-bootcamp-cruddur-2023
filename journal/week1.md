@@ -11,7 +11,7 @@ We built an image via Gitpod. **Launched the micro blogging app - Cruddur on a l
 Then, we set the notifications feature in this cruddur app. While setting this notification I faced few errors which later on I managed to troubleshoot and some of the bootcampers helped me to find and solve the error.
 
 
-### Troubleshooted Error
+### Troubleshooted Error : 404 Not Found [Unhandled Thrown Error]
 There was a problem when I ran the port 3000 for the frontend thing and I could see the error message **404 Not Found**.
 
 ![](https://user-images.githubusercontent.com/115455157/221342650-fb88fdd6-fa2d-4138-b513-ee2df087fdaa.jpg)
@@ -31,13 +31,13 @@ This error was a hectic task for me to solve as it consumed lot of time to solve
  Installed and ran DynamoDB via Gitpod and **created a table "Musics"**. 
  Here I bymistankely had created the "Music" table in another directory and then later realized that it's the wrong directory. So again tried creating the same table in different directory but tha didn't work.
  
- ### Troubleshooted Error
+ ### Troubleshooted Error : Table already exists
  So I had to change the name of the table because it didn;t allow me to create a same name table in different directory. So I changed **"Music" to "Musics"**, haha.
  then I was good to go. Created a new table and listed items and it was all good.
  
  ## #3 Installed Postgres
  We also installed and ran Postgres on Gitpod. But I faced some issue while running he Postgres installing script.
- ### Troubleshooted Error
+ ### Troubleshooted Error : Invalid Compose Project
  So the error stated "Invalid Compose Project" and something like undefined vloume db has been used, after researching from the stackoverflow I found the soulution. The problem was in the code where we had to define volume before `networks` section and not in the end. Here's  the code from the `docker-compose.yml` file
  ```
  volumes:
