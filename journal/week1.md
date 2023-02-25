@@ -63,6 +63,9 @@ This error was a hectic task for me to solve as it consumed lot of time to solve
   
   I got this error maybe because I siumltaneously made changes in the repositories from the gitpod as well as from the github. So to overcome this I had to merge the branches. Because I guess there were two branches created unknowingly. so I ran `git pull` command then it gave me some hints to solve my issue. I proceeded with `git config pull.rebase false` to merge the branches then I did `git pull` and `git push` and it showed **"Everything is up to date"**.
   
+  ## #4 Watched Chriag's price consideration Video for this week1
+  It was good and helped to know that this Gitpod charges you on an horuly basis per month. If your workspace is open more than 50 hours in a month it will charge you. As 50 hours/month is in the free-teir. To avoid unwanted use we can also **stop the gitod workspace** when not in use. **Attended the Pricing Quiz** which was damn easy as I already had watched Chirag's video that covered all of the conent. 
+  Pricing Video link : https://www.youtube.com/watch?v=OAMHu1NiYoI&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=24 
   
 
  
