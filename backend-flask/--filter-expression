@@ -1,0 +1,13 @@
+> aws xray create-group Cruddur 'service("backend-flask")'
+
+
+
+
+
+
+
+
+ 
+───────────────────────────────────────────────────────────────────────────────                                                                               ─
+[ENTER] Autocomplete Choice/Execute Command    [F1] Show Shortkey Help    [F2]                                                                                F
+ocus on next panel    [F3] Hide/Show Docs    [F5] Hide/Show Output                                                           
