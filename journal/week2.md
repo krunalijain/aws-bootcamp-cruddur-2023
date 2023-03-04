@@ -3,9 +3,9 @@
 ## Required Homework
 **- Attended Live session : Observability** and understood the use of **Honeycomb**, which is an application used for logging and tracing data. Also used OTEL-Open Telemetry open source observability framework with Honeycomb to instrument traces and logs.
 
-## HONEYCOMB 
+## #1 HONEYCOMB 
 
-I created my Honeycomb account and created an environment and used that environments API Key to connect my Cruddur application data with Honeycomb.
+I created my Honeycomb account and created an environment and used that environment's API Key to connect my Cruddur application data with Honeycomb.
 To set the Honeycomb API Key as an environment variable in Gitpod I used these commands. 
 ```
 export HONEYCOMB_API_KEY="<your API key>"
@@ -26,6 +26,7 @@ opentelemetry-instrumentation-flask
 opentelemetry-instrumentation-requests
 ```
 Here's my `app.py` code required for Honeycomb
+
 **- To get required packages** 
 ```
 from opentelemetry import trace
@@ -59,6 +60,6 @@ cors = CORS(
   methods="OPTIONS,GET,HEAD,POST"
 )
 ```
-
+## #2 AWS X-RAY
  
 
