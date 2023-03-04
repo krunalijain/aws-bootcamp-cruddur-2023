@@ -93,7 +93,7 @@ def init_rollbar():
     """init rollbar module"""
     rollbar.init(
         # access token
-        '5c462803440e4ed9a8a870c9608d9642',
+        '${ROLLBAR_ACCESS_TOKEN}',
         # environment name
         'production',
         # server root directory, makes tracebacks prettier
