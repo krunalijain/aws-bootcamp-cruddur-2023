@@ -60,11 +60,17 @@ cors = CORS(
   methods="OPTIONS,GET,HEAD,POST"
 )
 ```
-Trace spans by hardcode
+ **Trace spans by hardcode**
 
 ![](https://user-images.githubusercontent.com/115455157/222894554-155e2821-7bf0-4bdb-a2bb-3bf8cad82ab5.jpg)
 
 ## #2 AWS X-RAY
+Amazon provides us another service called X-RAY which is helpful to trace requests of microservices. Analyzes and Debugs application running on distributed environment. I created segements and subsegments by following the instructional videos. 
 
- 
+To get your application traced in AWS X-RAY you need to install aws-xray-sdk module. You cn do so by running the below command.
+```
+pip install aws-xray-sdk
+```
+But in our bootcamp project we had added this module in our `requirements.txt` file and installed. 
+
 
