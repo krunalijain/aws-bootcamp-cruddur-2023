@@ -145,7 +145,7 @@ def data_show_activity(activity_uuid):
 After adding I got subsegments 
 ![](https://user-images.githubusercontent.com/115455157/222913066-40649d6e-d80b-49d4-8654-e2ee37a7fe83.jpg)
 
-## CloudWatch 
+## #3 CloudWatch 
 For CLoudWatch I installed `watchtower` and imported `watchtower`, `logging` and `strftime from time`.
 Also set env vars in backend flask in `docker-compose.yml` 
 ```
@@ -177,7 +177,7 @@ We randomly logged in API endpoint
 LOGGER.info('Hello Cloudwatch! from  /api/activities/home')
 ```
 
-## Rollbar
+## #4 Rollbar
 Rollbar is used to **track errors** and monitor application if any error is there it track and helps to debug. Provides detail information about the Error.
 - **Created my Rollbar account** ->  https://rollbar.com/
 - **Then created a new Rollbar Project** : It asks you to setup your project , you get chance to select your SDK and also provides instructions on how to start. 
@@ -222,3 +222,17 @@ def rollbar_test():
     rollbar.report_message('Hello World!', 'warning')
     return "Hello World!"
 ```
+
+## Rollbar Error
+I was facing poblem while checking data in my Rollbar account. When I clicked on `Items` tab it was redirecting me to the `Dashboard` page only. 
+
+## Solved Rollbar Issue
+There will be a deafult project available in the rollbar account `FirstPorject`. As there is only one project so I had to create another one so that it will give me options to select between. But this helped only to access `Items` tab but it was fetching data.
+
+After checking I found that I was using the **wrong project access token** so then I changed that and it was all good. TheN I created a error to check whethe rit's working and it was working. I could see a *Traceback Error*.
+
+## #5 Watched Pricing and Security Consideration Videos
+- **Security** : Got to know about the Observability and Monitoring tools and how they are useful for our project, security maintainence and debugging purpose. Also attended the quiz. Here's the link for Ashish's video : https://www.youtube.com/watch?v=bOf4ITxAcXc&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=31 
+- **Pricing** : In Chirag's pricing video I explored the pricing structure of Honeycomb, X-RA, CLoudWatch, Rollbar. Where I got to know which services of Amazon are under free-tier and what monthly capacity is being provided to us. Also these service charges varies from region to region. Then attended the Pricing quizz. Here's the link to the Price consideration video : https://www.youtube.com/watch?v=2W3KeqCjtDY
+
+
