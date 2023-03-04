@@ -129,6 +129,6 @@ When I was creatigna sampling rule then at te end after setting all the things w
 
 ![](https://user-images.githubusercontent.com/115455157/222896456-3dbf8ad5-d29c-46cd-a023-b1642e354692.jpg)
 
+## Solved X-RAY Error
 
-**Solved**
 So, I was in the wrong directory (frontend-react-js) while performing this task. I **changed my directory to `backend-flask`** and it was working all good.  
