@@ -99,3 +99,24 @@ aws xray create-group \
    --filter-expression "service(\"$FLASK_ADDRESS\")"
 ```
 The above code is useful for setting up monitoring for a specific Flask service using AWS X-Ray. It creates a group that can be used to visualize and analyze traces for that service, helping developers identify and resolve issues more quickly.
+
+- **Install Daemon Service**
+Then I had to add X-RAY Daemon Service for that I added this part of code in my `docker-compose.yml` file.
+```
+ xray-daemon:
+    image: "amazon/aws-xray-daemon"
+    environment:
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_REGION: "us-east-1"
+    command:
+      - "xray -o -b xray-daemon:2000"
+    ports:
+      - 2000:2000/udp
+```
+Also added Environment Variables :
+```
+   AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
+   AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
+```
+
