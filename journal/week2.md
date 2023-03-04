@@ -145,3 +145,13 @@ def data_show_activity(activity_uuid):
 After adding I got subsegments 
 ![](https://user-images.githubusercontent.com/115455157/222913066-40649d6e-d80b-49d4-8654-e2ee37a7fe83.jpg)
 
+## CloudWatch 
+For CLoudWatch I installed `watchtower` and imported `watchtower`, `logging` and `strftime from time`.
+Also set env vars in backend flask in `docker-compose.yml` 
+```
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+```
+
+
