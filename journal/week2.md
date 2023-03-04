@@ -67,10 +67,28 @@ cors = CORS(
 ## #2 AWS X-RAY
 Amazon provides us another service called X-RAY which is helpful to trace requests of microservices. Analyzes and Debugs application running on distributed environment. I created segements and subsegments by following the instructional videos. 
 
-To get your application traced in AWS X-RAY you need to install aws-xray-sdk module. You cn do so by running the below command.
+- To get your application traced in AWS X-RAY you need to install aws-xray-sdk module. You can do this by running the below command.
 ```
 pip install aws-xray-sdk
 ```
 But in our bootcamp project we had added this module in our `requirements.txt` file and installed. 
 
+- Created our own Sampling group name 'Cruddur'. This code was written in `aws/json/xray.json` file
+```
+{
+  "SamplingRule": {
+      "RuleName": "Cruddur",
+      "ResourceARN": "*",
+      "Priority": 9000,
+      "FixedRate": 0.1,
+      "ReservoirSize": 5,
+      "ServiceName": "Cruddur",
+      "ServiceType": "*",
+      "Host": "*",
+      "HTTPMethod": "*",
+      "URLPath": "*",
+      "Version": 1
+  }
+}
+```
 
