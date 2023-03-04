@@ -60,7 +60,7 @@ cors = CORS(
   methods="OPTIONS,GET,HEAD,POST"
 )
 ```
- - **Trace spans by hardcode**
+ **Trace spans by hardcode**
 
 ![](https://user-images.githubusercontent.com/115455157/222894554-155e2821-7bf0-4bdb-a2bb-3bf8cad82ab5.jpg)
 
@@ -73,7 +73,7 @@ pip install aws-xray-sdk
 ```
 But in our bootcamp project we had added this module in our `requirements.txt` file and installed. 
 
-- Created our own Sampling group name 'Cruddur'. This code was written in `aws/json/xray.json` file
+- Created our own Sampling Rule name 'Cruddur'. This code was written in `aws/json/xray.json` file
 ```
 {
   "SamplingRule": {
@@ -91,4 +91,11 @@ But in our bootcamp project we had added this module in our `requirements.txt` f
   }
 }
 ```
-
+- **To create a new group for tracing and analyzing errors and faults in a Flask application.**
+```
+FLASK_ADDRESS="https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+aws xray create-group \
+   --group-name "Cruddur" \
+   --filter-expression "service(\"$FLASK_ADDRESS\")"
+```
+The above code is useful for setting up monitoring for a specific Flask service using AWS X-Ray. It creates a group that can be used to visualize and analyze traces for that service, helping developers identify and resolve issues more quickly.
