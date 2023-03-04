@@ -154,4 +154,33 @@ Also set env vars in backend flask in `docker-compose.yml`
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
 ```
 
+- **Configured LOGGER to use CloudWatch**
+```
+# Configuring Logger to Use CloudWatch
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+LOGGER.addHandler(console_handler)
+LOGGER.addHandler(cw_handler)
+LOGGER.info("some message")
+```
+```
+@app.after_request
+def after_request(response):
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+    return response
+```
+We randomly logged in API endpoint
+```
+LOGGER.info('Hello Cloudwatch! from  /api/activities/home')
+```
+
+## Rollbar
+Rollbar is used to **track errors** and monitor application if any error is there it track and helps to debug. Provides detail information about the Error.
+- **Created my Rollbar account** ->  https://rollbar.com/
+- **Then created a new Rollbar Project** : It asks you to setup your project , you get chance to select your SDK and also provides instructions on how to start. 
+- **Access token** is provide for your new Rollbar Project
+
 
