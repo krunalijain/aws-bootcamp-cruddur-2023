@@ -2,8 +2,9 @@ from datetime import datetime, timedelta, timezone
 from aws_xray_sdk.core import xray_recorder
 class UserActivities:
   def run(user_handle):
+   try:
     # X-RAY------
-    segment = xray_recorder.begin_segment('user_activities')
+    # segment = xray_recorder.begin_segment('user_activities')
 
     model = {
       'errors': None,
@@ -34,5 +35,9 @@ class UserActivities:
       "result-size": len(model['data'])
     }
     subsegment.put_metadata('key', dict, 'namespace')
+    xray_recorder.end_subsegment()
+   finally:
+      # Close the segment
+    xray_recorder.end_subsegment()
 
     return model
