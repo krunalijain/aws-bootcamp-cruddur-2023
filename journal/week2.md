@@ -9,5 +9,5 @@ To set the Honeycomb API Key as an environment variable in Gitpod I used these c
 export HONEYCOMB_API_KEY="<your API key>"
 gp env HONEYCOMB_API_KEY="<your API key>"
 ```
-
+started
 
