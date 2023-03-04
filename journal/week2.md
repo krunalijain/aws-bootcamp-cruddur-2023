@@ -1,7 +1,7 @@
 # Week 2 — Distributed Tracing
 
 ## Required Homework
-**- Attended Live session : Observability** and understood the use of **Honeycomb**, which is an application used for logging and tracing data. Also used OTEL-Open Telemetry open source observability framework with Honeycomb to instrument traces and logs.
+**Attended Live session : Observability** and understood the use of **Honeycomb**, which is an application used for logging and tracing data. Also used OTEL-Open Telemetry open source observability framework with Honeycomb to instrument traces and logs.
 
 ## #1 HONEYCOMB 
 
@@ -27,7 +27,7 @@ opentelemetry-instrumentation-requests
 ```
 Here's my `app.py` code required for Honeycomb
 
-**- To get required packages** 
+- **To get required packages** 
 ```
 from opentelemetry import trace
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
@@ -36,7 +36,7 @@ from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExport
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 ```
-**- Initialize tracing and an exporter that can send data to Honeycomb**
+- **Initialize tracing and an exporter that can send data to Honeycomb**
 ```
 provider = TracerProvider()
 processor = BatchSpanProcessor(OTLPSpanExporter())
@@ -44,7 +44,7 @@ provider.add_span_processor(processor)
 trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 ```
-**- Add inside the 'app' to  Initialize automatic instrumentation with Flask**
+- **Add inside the 'app' to  Initialize automatic instrumentation with Flask**
 ```
 FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
@@ -60,7 +60,7 @@ cors = CORS(
   methods="OPTIONS,GET,HEAD,POST"
 )
 ```
- **Trace spans by hardcode**
+ - **Trace spans by hardcode**
 
 ![](https://user-images.githubusercontent.com/115455157/222894554-155e2821-7bf0-4bdb-a2bb-3bf8cad82ab5.jpg)
 
