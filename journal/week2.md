@@ -62,7 +62,7 @@ cors = CORS(
 ```
 Trace spans by hardcode
 
-[]!(https://user-images.githubusercontent.com/115455157/222894554-155e2821-7bf0-4bdb-a2bb-3bf8cad82ab5.jpg)
+![](https://user-images.githubusercontent.com/115455157/222894554-155e2821-7bf0-4bdb-a2bb-3bf8cad82ab5.jpg)
 
 ## #2 AWS X-RAY
 
