@@ -145,7 +145,7 @@ def data_show_activity(activity_uuid):
 After adding I got subsegments 
 ![](https://user-images.githubusercontent.com/115455157/222913066-40649d6e-d80b-49d4-8654-e2ee37a7fe83.jpg)
 
-## #3 CloudWatch 
+## #3 CloudWatch
 For CLoudWatch I installed `watchtower` and imported `watchtower`, `logging` and `strftime from time`.
 Also set env vars in backend flask in `docker-compose.yml` 
 ```
@@ -177,7 +177,7 @@ We randomly logged in API endpoint
 LOGGER.info('Hello Cloudwatch! from  /api/activities/home')
 ```
 
-## #4 Rollbar
+## #4 ROLLBAR
 Rollbar is used to **track errors** and monitor application if any error is there it track and helps to debug. Provides detail information about the Error.
 - **Created my Rollbar account** ->  https://rollbar.com/
 - **Then created a new Rollbar Project** : It asks you to setup your project , you get chance to select your SDK and also provides instructions on how to start. 
