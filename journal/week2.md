@@ -181,6 +181,44 @@ LOGGER.info('Hello Cloudwatch! from  /api/activities/home')
 Rollbar is used to **track errors** and monitor application if any error is there it track and helps to debug. Provides detail information about the Error.
 - **Created my Rollbar account** ->  https://rollbar.com/
 - **Then created a new Rollbar Project** : It asks you to setup your project , you get chance to select your SDK and also provides instructions on how to start. 
-- **Access token** is provide for your new Rollbar Project
+- **Access token** is provided for your new Rollbar Project.
+- **Installed** `blinker` and `rollbar`.
+- Set my access token 
+```
+export ROLLBAR_ACCESS_TOKEN=""
+gp env ROLLBAR_ACCESS_TOKEN=""
+```
+- **Added to backend-flask for `docker-compose.yml`**
+```
+ROLLBAR_ACCESS_TOKEN: "${ROLLBAR_ACCESS_TOKEN}"
+```
+- **Imported** for Rollbar
+```
+import rollbar
+import rollbar.contrib.flask
+from flask import got_request_exception
+```
+```
+rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
+@app.before_first_request
+def init_rollbar():
+    """init rollbar module"""
+    rollbar.init(
+        # access token
+        rollbar_access_token,
+        # environment name
+        'production',
+        # server root directory, makes tracebacks prettier
+        root=os.path.dirname(os.path.realpath(__file__)),
+        # flask already sets up logging
+        allow_logging_basic_config=False)
 
-
+    # send exceptions from `app` to rollbar, using flask's signal system.
+    got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
+```
+- **Added an endpoint just for testing rollbar to `app.py`**
+```@app.route('/rollbar/test')
+def rollbar_test():
+    rollbar.report_message('Hello World!', 'warning')
+    return "Hello World!"
+```
