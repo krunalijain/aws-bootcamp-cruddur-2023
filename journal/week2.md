@@ -100,6 +100,10 @@ aws xray create-group \
 ```
 The above code is useful for setting up monitoring for a specific Flask service using AWS X-Ray. It creates a group that can be used to visualize and analyze traces for that service, helping developers identify and resolve issues more quickly.
 
+Then run this command to get the above code executed 
+```
+aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
+```
 - **Install Daemon Service**
 Then I had to add X-RAY Daemon Service for that I added this part of code in my `docker-compose.yml` file.
 ```
@@ -120,3 +124,11 @@ Also added Environment Variables :
    AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
 ```
 
+## My X-RAY Error 
+When I was creatigna sampling rule then at te end after setting all the things when I had to run the last coomand `aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json` to create a sampling rule I faced `Error parsing parameter` and `Error2: No such file or directory found`. 
+
+![](https://user-images.githubusercontent.com/115455157/222896456-3dbf8ad5-d29c-46cd-a023-b1642e354692.jpg)
+
+
+**Solved**
+So, I was in the wrong directory (frontend-react-js) while performing this task. I **changed my directory to `backend-flask`** and it was working all good.  
