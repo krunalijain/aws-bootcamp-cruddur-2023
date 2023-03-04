@@ -25,64 +25,40 @@ opentelemetry-exporter-otlp-proto-http
 opentelemetry-instrumentation-flask 
 opentelemetry-instrumentation-requests
 ```
-Honeycomb Code in my `home_activites.py` which is in `backend-flask`
+Here's my `app.py` code required for Honeycomb
+**- To get required packages** 
 ```
-from datetime import datetime, timedelta, timezone
 from opentelemetry import trace
-import logging
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+```
+**- Initialize tracing and an exporter that can send data to Honeycomb**
+```
+provider = TracerProvider()
+processor = BatchSpanProcessor(OTLPSpanExporter())
+provider.add_span_processor(processor)
+trace.set_tracer_provider(provider)
+tracer = trace.get_tracer(__name__)
+```
+**- Add inside the 'app' to  Initialize automatic instrumentation with Flask**
+```
+FlaskInstrumentor().instrument_app(app)
+RequestsInstrumentor().instrument()
 
-tracer = trace.get_tracer("home.activities")
-
-class HomeActivities:
-  def run():
-   logger.info("HomeActivities")
-   with tracer.start_as_current_span("home-activities-mock-data"):
-    span = trace.get_current_span()
-    now = datetime.now(timezone.utc).astimezone()
-    span.set_attribute("app.now", now.isoformat())
-    results = [{
-      'uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',
-      'handle':  'Andrew Brown',
-      'message': 'Cloud is fun!',
-      'created_at': (now - timedelta(days=2)).isoformat(),
-      'expires_at': (now + timedelta(days=5)).isoformat(),
-      'likes_count': 5,
-      'replies_count': 1,
-      'reposts_count': 0,
-      'replies': [{
-        'uuid': '26e12864-1c26-5c3a-9658-97a10f8fea67',
-        'reply_to_activity_uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',
-        'handle':  'Worf',
-        'message': 'This post has no honor!',
-        'likes_count': 0,
-        'replies_count': 0,
-        'reposts_count': 0,
-        'created_at': (now - timedelta(days=2)).isoformat()
-      }],
-    },
-    {
-      'uuid': '66e12864-8c26-4c3a-9658-95a10f8fea67',
-      'handle':  'Worf',
-      'message': 'I am out of prune juice',
-      'created_at': (now - timedelta(days=7)).isoformat(),
-      'expires_at': (now + timedelta(days=9)).isoformat(),
-      'likes': 0,
-      'replies': []
-    },
-    {
-      'uuid': '248959df-3079-4947-b847-9e0892d1bab4',
-      'handle':  'Garek',
-      'message': 'My dear doctor, I am just simple tailor',
-      'created_at': (now - timedelta(hours=1)).isoformat(),
-      'expires_at': (now + timedelta(hours=12)).isoformat(),
-      'likes': 0,
-      'replies': []
-    }
-    ]
-    span.set_attribute("app.result_length", len(results))
-    return results
-  ```
-**NOTE: I have not defined 'Logger' because I had to proceed with further tasks. So once my work was done I have chnanged the code.**
+frontend = os.getenv('FRONTEND_URL')
+backend = os.getenv('BACKEND_URL')
+origins = [frontend, backend]
+cors = CORS(
+  app, 
+  resources={r"/api/*": {"origins": origins}},
+  expose_headers="location,link",
+  allow_headers="content-type,if-modified-since",
+  methods="OPTIONS,GET,HEAD,POST"
+)
+```
 
  
 
