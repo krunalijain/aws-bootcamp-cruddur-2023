@@ -30,7 +30,7 @@ After installing this I found `"aws-amplify": "^5.0.16",` in my frontend-react-j
 
 ### Configure Amplify
 I added this code in `app.js` of frontend-react-js directory.
-```
+```js
 import { Amplify } from 'aws-amplify';
 
 Amplify.configure({
@@ -51,7 +51,7 @@ Amplify.configure({
 ```
 
 In the above code set these below env vars in `docker-compose.yml`.
-```
+```js
 REACT_APP_AWS_PROJECT_REGION= ""
 REACT_APP_AWS_COGNITO_IDENTITY_POOL_ID= ""
 REACT_APP_AWS_COGNITO_REGION= ""
@@ -59,7 +59,7 @@ REACT_APP_AWS_USER_POOLS_ID= ""
 REACT_APP_CLIENT_ID= ""
 ```
 ### Then to check the **Authentication Process** I added this code in my `HomeFeedPage.js`
-```
+```js
 import { Auth } from 'aws-amplify';
 
 // set a state
@@ -92,12 +92,12 @@ React.useEffect(()=>{
 }, [])
 ```
 ### To render two React components: `DesktopNavigation` and `DesktopSidebar`, passing some properties to each of them.
-```
+```js
 <DesktopNavigation user={user} active={'home'} setPopped={setPopped} />
 <DesktopSidebar user={user} />
 ```
 ### Then added this code in `DesktopNavigation.js` which helps you to check whether you are logged in or not by passing the`user` to `ProfileInfo`.
-```
+```js
 import './DesktopNavigation.css';
 import {ReactComponent as Logo} from './svg/logo.svg';
 import DesktopNavigationLink from '../components/DesktopNavigationLink';
@@ -155,7 +155,7 @@ export default function DesktopNavigation(props) {
 ### In `ProfileInfo.js`
 
 This code defines a function called `signOut` that uses the `Auth` object from the `aws-amplify` library to sign out the currently authenticated user from an AWS Amplify application.
-```
+```js
 import { Auth } from 'aws-amplify';
 
 const signOut = async () => {
@@ -172,7 +172,7 @@ Overall, this code provides a simple and straightforward way to sign out a user 
 ### Signin Page, Signout Page and Confirmation Page
 Added code to handle Errors like if the username or email is wrong then it should display a error message.
 **Signin Page**
-```
+```js
 import { Auth } from 'aws-amplify';
 
 const [cognitoErrors, setCognitoErrors] = React.useState('');
@@ -206,7 +206,7 @@ if (cognitoErrors){
 ```
 
 **Signout Page**
-```
+```js
 import { Auth } from 'aws-amplify';
 
 const [cognitoErrors, setCognitoErrors] = React.useState('');
@@ -245,7 +245,7 @@ if (cognitoErrors){
 {errors}
 ```
 **Confirmation Page**
-```
+```js
 const resend_code = async (event) => {
   setCognitoErrors('')
   try {
