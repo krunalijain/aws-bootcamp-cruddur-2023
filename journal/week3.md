@@ -296,3 +296,7 @@ const onsubmit_confirm_code = async (event) => {
 ```
 Added the above code to check password macthing 
 
+**This is how it displayed the error after entering wrong email/password**
+
+![](https://user-images.githubusercontent.com/115455157/222957414-a8789da8-5957-4fe6-81e4-429f6f55f9a1.jpg)
+
