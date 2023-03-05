@@ -153,6 +153,7 @@ export default function DesktopNavigation(props) {
 ```
 
 In `ProfileInfo.js`
+
 This code defines a function called `signOut` that uses the `Auth` object from the `aws-amplify` library to sign out the currently authenticated user from an AWS Amplify application.
 ```
 import { Auth } from 'aws-amplify';
