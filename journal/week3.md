@@ -278,3 +278,22 @@ const onsubmit = async (event) => {
 }
 ```
 In the above code I have added the try catch block and used `setCognitoErrors("Email is invalid or cannot be found.") ` to catch the error.
+
+### Recovery Page
+```
+js
+const onsubmit_confirm_code = async (event) => {
+  event.preventDefault();
+  setCognitoErrors('')
+  if (password == passwordAgain){
+    Auth.forgotPasswordSubmit(username, code, password)
+    .then((data) => setFormState('success'))
+    .catch((err) => setCognitoErrors(err.message) );
+  } else {
+    setCognitoErrors('Passwords do not match')
+  }
+  return false
+}
+```
+Added the above code to check password macthing 
+
