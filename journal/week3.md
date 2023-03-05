@@ -17,4 +17,4 @@ In this live session, I first created a UserPool in AWS Cognito.
 - Under Required attributes -> I selected **Name** and **preferred username** (Note: once you create a userpool then you cannot modify these required attributes so make sure to add correctly when creating) -> **Next**
 - Then I chose **Send email with Cognito** for first time -> **Next**
 - After that you will be asked to give your User Pool Name , I gave it as **crddur-user-pool** -> under Initial app client I kept it as **Public client** -> enter app client name **(eg: cruddur)** -> **Next**
-- You will get a chance to verify all the filled details and then calick on **Create User Pool**, your usepool is being created.
+- You will get a chance to verify all the filled details and then click on **Create User Pool**, your usepool is being created.
