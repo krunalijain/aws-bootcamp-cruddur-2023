@@ -50,9 +50,9 @@ Amplify.configure({
 });
 ```
 
-In the above code you will have to set these below env vars in `docker-compose.yml`.
+In the above code set these below env vars in `docker-compose.yml`.
 ```
-REACT_AWS_PROJECT_REGION= ""
+REACT_APP_AWS_PROJECT_REGION= ""
 REACT_APP_AWS_COGNITO_IDENTITY_POOL_ID= ""
 REACT_APP_AWS_COGNITO_REGION= ""
 REACT_APP_AWS_USER_POOLS_ID= ""
