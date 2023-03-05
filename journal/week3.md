@@ -58,7 +58,7 @@ REACT_APP_AWS_COGNITO_REGION= ""
 REACT_APP_AWS_USER_POOLS_ID= ""
 REACT_APP_CLIENT_ID= ""
 ```
-Then to check the **Authentication Process** I added this code in my `HomeFeedPage.js`
+### Then to check the **Authentication Process** I added this code in my `HomeFeedPage.js`
 ```
 import { Auth } from 'aws-amplify';
 
@@ -91,12 +91,12 @@ React.useEffect(()=>{
   checkAuth();
 }, [])
 ```
-To render two React components: `DesktopNavigation` and `DesktopSidebar`, passing some properties to each of them.
+### To render two React components: `DesktopNavigation` and `DesktopSidebar`, passing some properties to each of them.
 ```
 <DesktopNavigation user={user} active={'home'} setPopped={setPopped} />
 <DesktopSidebar user={user} />
 ```
-Then added this code in `DesktopNavigation.js` which helps you to check whether you are logged in or not by passing the`user` to `ProfileInfo`.
+### Then added this code in `DesktopNavigation.js` which helps you to check whether you are logged in or not by passing the`user` to `ProfileInfo`.
 ```
 import './DesktopNavigation.css';
 import {ReactComponent as Logo} from './svg/logo.svg';
@@ -152,7 +152,7 @@ export default function DesktopNavigation(props) {
 }
 ```
 
-In `ProfileInfo.js`
+### In `ProfileInfo.js`
 
 This code defines a function called `signOut` that uses the `Auth` object from the `aws-amplify` library to sign out the currently authenticated user from an AWS Amplify application.
 ```
