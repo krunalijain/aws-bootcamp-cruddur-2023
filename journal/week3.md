@@ -25,4 +25,5 @@ I installed AWS Amplify as it is development platform and provides you set of pr
 npm i aws-amplify --save
 ```
 After installing this I found `"aws-amplify": "^5.0.16",` in my frontend-react-js directory's `package.json` file.
+
 **Note: make sure you are running these commands in your `frontend-react-js` directory.**
