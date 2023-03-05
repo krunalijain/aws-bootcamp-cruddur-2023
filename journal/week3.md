@@ -280,8 +280,7 @@ const onsubmit = async (event) => {
 In the above code I have added the try catch block and used `setCognitoErrors("Email is invalid or cannot be found.") ` to catch the error.
 
 ### Recovery Page
-```
-js
+```js
 const onsubmit_confirm_code = async (event) => {
   event.preventDefault();
   setCognitoErrors('')
