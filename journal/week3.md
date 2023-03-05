@@ -27,3 +27,34 @@ npm i aws-amplify --save
 After installing this I found `"aws-amplify": "^5.0.16",` in my frontend-react-js directory's `package.json` file.
 
 **Note: make sure you are running these commands in your `frontend-react-js` directory.**
+
+### Configure Amplify
+I added this code in `app.js` of frontend-react-js directory.
+```
+import { Amplify } from 'aws-amplify';
+
+Amplify.configure({
+  "AWS_PROJECT_REGION": process.env.REACT_AWS_PROJECT_REGION,
+  "aws_cognito_identity_pool_id": process.env.REACT_APP_AWS_COGNITO_IDENTITY_POOL_ID,
+  "aws_cognito_region": process.env.REACT_APP_AWS_COGNITO_REGION,
+  "aws_user_pools_id": process.env.REACT_APP_AWS_USER_POOLS_ID,
+  "aws_user_pools_web_client_id": process.env.REACT_APP_CLIENT_ID,
+  "oauth": {},
+  Auth: {
+    // We are not using an Identity Pool
+    // identityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID, // REQUIRED - Amazon Cognito Identity Pool ID
+    region: process.env.REACT_AWS_PROJECT_REGION,           // REQUIRED - Amazon Cognito Region
+    userPoolId: process.env.REACT_APP_AWS_USER_POOLS_ID,         // OPTIONAL - Amazon Cognito User Pool ID
+    userPoolWebClientId: process.env.REACT_APP_AWS_USER_POOLS_WEB_CLIENT_ID,   // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
+  }
+});
+```
+
+In the above code you will have to set these below env vars in `docker-compose.yml`.
+```
+REACT_AWS_PROJECT_REGION= ""
+REACT_APP_AWS_COGNITO_IDENTITY_POOL_ID= ""
+REACT_APP_AWS_COGNITO_REGION= ""
+REACT_APP_AWS_USER_POOLS_ID= ""
+REACT_APP_CLIENT_ID= ""
+```
