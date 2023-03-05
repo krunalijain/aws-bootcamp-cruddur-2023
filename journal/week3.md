@@ -3,7 +3,8 @@
 ## Required Homework
 ## #1 Live Session 
 ### AWS Cognito
-In this live session, I first created a UserPool in AWS Cognito. 
+In this live session, I first created a UserPool in AWS Cognito.
+
 **Steps to setup UserPool in AWS Cognito**
 - Login to your AWS Console
 - Check your region in which you want to use your service. I personally prefer `us-east-1` region as in that region most of the services works well.
