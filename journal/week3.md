@@ -18,3 +18,11 @@ In this live session, I first created a UserPool in AWS Cognito.
 - Then I chose **Send email with Cognito** for first time -> **Next**
 - After that you will be asked to give your User Pool Name , I gave it as **crddur-user-pool** -> under Initial app client I kept it as **Public client** -> enter app client name **(eg: cruddur)** -> **Next**
 - You will get a chance to verify all the filled details and then click on **Create User Pool**, your usepool is being created.
+
+## Gitpod Code Working 
+I installed AWS Amplify as it is development platform and provides you set of pre-built UI components and Libraries. 
+```
+npm i aws-amplify --save
+```
+After installing this I found `"aws-amplify": "^5.0.16",` in my frontend-react-js directory's `package.json` file.
+**Note: make sure you are running these commands in your `frontend-react-js` directory.**
