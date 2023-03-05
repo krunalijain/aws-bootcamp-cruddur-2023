@@ -2,7 +2,7 @@
 
 ## Required Homework
 ## #1 Live Session 
-### AWS Cognito
+# AWS Cognito
 In this live session, I first created a UserPool in AWS Cognito.
 
 **Steps to setup UserPool in AWS Cognito**
