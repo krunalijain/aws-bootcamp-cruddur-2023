@@ -61,10 +61,9 @@ tracer = trace.get_tracer(__name__)
 xray_url = os.getenv("AWS_XRAY_URL")
 xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
-
 app = Flask(__name__)
 
-cognito_jwt_token =CognitoJwtToken(
+cognito_jwt_token = CognitoJwtToken(
   user_pool_id=os.getenv("AWS_COGNITO_USER_POOL_ID"),
   user_pool_client_id=os.getenv("AWS_COGNITO_USER_POOL_CLIENT_ID"),
   region=os.getenv("AWS_DEFAULT_REGION")
@@ -156,14 +155,15 @@ def data_create_message():
 @app.route("/api/activities/home", methods=['GET'])
 @xray_recorder.capture('activities_home')
 def data_home():
-  access_token = CognitoJwtToken.extract_access_token(request.headers)
+  access_token = cognito_jwt_token.extract_access_token(request.headers)
   try:
-    self.token_service.verify(access_token)
+    claims = cognito_jwt_token.token_service.verify(access_token)
     self.claims = self.token_service.claims
     g.cognito_claims = self.claims
   except TokenVerifyError as e:
     _ = request.data
     abort(make_response(jsonify(message=str(e)), 401))
+    
   app.logger.debug('claims')
   app.logger.debug(claims)
 
