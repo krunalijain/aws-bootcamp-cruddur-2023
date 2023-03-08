@@ -36,6 +36,8 @@ class CognitoJwtToken:
         try:
             response = self.request_client(keys_url)
             self.jwk_keys = response.json()["keys"]
+            #self.jwk_keys = response.json()
+            #print("this is reponse key", self.jwk_keys)
         except requests.exceptions.RequestException as e:
             raise FlaskAWSCognitoError(str(e)) from e
 
