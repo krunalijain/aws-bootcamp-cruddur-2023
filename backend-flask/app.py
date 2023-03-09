@@ -165,8 +165,8 @@ def data_home():
     data = HomeActivities.run(cognito_user_id=claims['username'])
   except TokenVerifyError as e:
      # unauthenticated requests
-    app.logger.deug(e)
-    app.logger.deug("unauthenticated")
+    app.logger.debug(e)
+    app.logger.debug("unauthenticated")
     data = HomeActivities.run()
   return data, 200
 
