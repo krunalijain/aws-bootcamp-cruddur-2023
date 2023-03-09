@@ -18,6 +18,9 @@ export default function SignupPage() {
   const onsubmit = async (event) => {
     event.preventDefault();
     setErrors('')
+    console.log('username',username)
+    console.log('email',email)
+    console.log('name',name)
     try {
       const { user } = await Auth.signUp({
         username: email,
