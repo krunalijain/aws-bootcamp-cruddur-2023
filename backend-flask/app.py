@@ -163,6 +163,7 @@ def data_home():
     app.logger.debug(claims)
   except TokenVerifyError as e:
      # unauthenticated requests
+    app.logger.deug(e)
     app.logger.deug("unauthenticated")
 
   data = HomeActivities.run()
