@@ -33,7 +33,7 @@ export default function ConfirmationPage() {
       // for this to be an okay match?
       console.log(err)
       if (err.message == 'Username cannot be empty') {
-        setErrors("You need to provide an email in order to send Resend Activiation Code")
+        setCognitoErrors("You need to provide an email in order to send Resend Activiation Code")
       } else if (err.message == "Username/client id combination not found.") {
         setCognitoErrors("Email is invalid or cannot be found.")
       }
