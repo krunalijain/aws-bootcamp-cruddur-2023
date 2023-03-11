@@ -310,7 +310,9 @@ Understood the concept of Authentication and Authoriazation.
 #### For Authorization
 
 - **O Auth** : Usually tag team together with Open ID.
+- 
 ***Real Life Example***
+
 When we post on WhatsApp Status it asks us to whether wnt to share on Facebook as well ?. This workflow essentially is the O Auth and Open ID workflow.
 Exchange of token happens at the end.
 
