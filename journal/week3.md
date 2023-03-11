@@ -325,3 +325,13 @@ Basically, it is a **user directory** with context of AWS.
 
 ## #5 Changed the UI of the Cruddur Application by implementing some CSS.
 
+## #6 Troubleshooting
+This week was more of coding and the more you code the more errors you will come across. So I was facing this **Type Error** after adding that code line to unset token `localStorage.removeItem(access_token)` in my `profileInfo.js`file and when I viewed logs it showed **KeyError: keys**
+
+![](https://user-images.githubusercontent.com/115455157/224488089-67f99565-c8ce-4fb6-863c-7adc6432fc20.jpg)
+
+![](https://user-images.githubusercontent.com/115455157/224488210-78459475-73f4-4905-b7af-d6b2ea79e950.jpg)
+
+### Solution
+After viewing logs and repeatedly restarting my environment I found that there was a spelling mistake. Instead of `app.logger.debug(e)` I had written it as `app.logger.deug(e)`. So finally after correcting that spelling mistake everyting was running well. 
+
