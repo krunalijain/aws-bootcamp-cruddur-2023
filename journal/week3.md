@@ -300,10 +300,10 @@ Added the above code to check password macthing
 
 ![](https://user-images.githubusercontent.com/115455157/222957414-a8789da8-5957-4fe6-81e4-429f6f55f9a1.jpg)
 
-## Implemented Server side verification using JWT
+## #2 Implemented Server side verification using JWT
 In this task I have learnt how to code for verification, authentication and authorization purpose. I have used **JWT(JSON Web Token)** because then, I will not have to go to any other external resource. Andrew, the organizer has decided to keep it simple, small, readable, maintainable and with no complexity. So he chose JWT. I was been instructed to create a user token. Which helped to fetch user data when the user logs in and if user logs out then for that the token was unset. 
 
-### Security Consideration Video by Ashish Rajan.
+## #3 Security Consideration Video by Ashish Rajan.
 Understood the concept of Authentication and Authoriazation. 
 - **SAML (Security Assertion Markup Language)** : You need to have a single point of entry into any application. [uses face ID]
 - **Open ID Connect** : Allows yyou to use your social credentials like Google credentials, LinkedIn, Facebook and so on.. (ONLY Authentication, NO Authorization).
@@ -316,12 +316,12 @@ Understood the concept of Authentication and Authoriazation.
 When we post on WhatsApp Status it asks us to whether wnt to share on Facebook as well ?. This workflow essentially is the O Auth and Open ID workflow.
 Exchange of token happens at the end.
 
-## AWS Cognito Concept
+## #4 AWS Cognito Concept
 Understood the concept of AWS Cognito : Amazon Cognito is your service which allows authentication with users that it stores locally in amazon account.
 Basically, it is a **user directory** with context of AWS.
 **There are 2 types of Amazon Cognito**
 - **Cognito User Pool** : Granting access to Application. 
 - **Cognito Identity Pool** : Granting access to Amazon services.
 
-### Changed the UI of the Cruddur Application by implementing some CSS.
+## #5 Changed the UI of the Cruddur Application by implementing some CSS.
 
