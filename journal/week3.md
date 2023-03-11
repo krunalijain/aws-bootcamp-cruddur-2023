@@ -14,7 +14,7 @@ In this live session, I first created a UserPool in AWS Cognito.
 - Password Policy I kept it as **Cognito Default**.
 - Under Multi-factor authentication -> I selected **No MFA** -> **Next**
 - In User account recovery -> checkbox **Email only** -> **Next**
-- Under Required attributes -> I selected **Name** and **preferred username** (Note: once you create a userpool then you cannot modify these required attributes so make sure to add correctly when creating) -> **Next**
+- Under Required attributes -> I selected **Name** and **preferred username** -> **Next**
 - Then I chose **Send email with Cognito** for first time -> **Next**
 - After that you will be asked to give your User Pool Name , I gave it as **crddur-user-pool** -> under Initial app client I kept it as **Public client** -> enter app client name **(eg: cruddur)** -> **Next**
 - You will get a chance to verify all the filled details and then click on **Create User Pool**, your usepool is being created.
@@ -299,4 +299,7 @@ Added the above code to check password macthing
 **This is how it displayed the error after entering wrong email/password**
 
 ![](https://user-images.githubusercontent.com/115455157/222957414-a8789da8-5957-4fe6-81e4-429f6f55f9a1.jpg)
+
+## Implemented Server side verification using JWT
+In this task I have learnt how to code for verification, authentication and authorization purpose. I have used **JWT(JSON Web Token)** because then, I will not have to go to any other external resource. Andrew, the organizer has decided to keep it simple, small, readable, maintainable and with no complexity. So he chose JWT. I was been instructed to create a user token. Which helped to fetch user data when the user logs in and if user logs out then for that the token was unset. 
 
