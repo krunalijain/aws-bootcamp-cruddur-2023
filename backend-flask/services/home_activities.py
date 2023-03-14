@@ -17,7 +17,6 @@ class HomeActivities:
     sql = query_wrap_array("""
     SELECT * FROM activities 
     """)
-    print()
     with pool.connection() as conn:
         with conn.cursor() as cur:
           cur.execute(sql)
