@@ -26,8 +26,8 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
 # X-RAY -------
-from aws_xray_sdk.core import xray_recorder
-from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
+#from aws_xray_sdk.core import xray_recorder
+#from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
 # Cloudwatch Logs ------
 import watchtower
@@ -58,8 +58,8 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 
 # X-RAY -------
-xray_url = os.getenv("AWS_XRAY_URL")
-xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
+#xray_url = os.getenv("AWS_XRAY_URL")
+#xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
 app = Flask(__name__)
 
@@ -70,7 +70,7 @@ cognito_jwt_token = CognitoJwtToken(
 )
 
 # X-RAY -------
-XRayMiddleware(app, xray_recorder)
+#XRayMiddleware(app, xray_recorder)
 
 # Honeycomb ------
 # Initialize automatic instrumentation with Flask
@@ -101,7 +101,7 @@ def init_rollbar():
     """init rollbar module"""
     rollbar.init(
         # access token
-        '${ROLLBAR_ACCESS_TOKEN}',
+        '5c462803440e4ed9a8a870c9608d9642',
         # environment name
         'production',
         # server root directory, makes tracebacks prettier
@@ -153,7 +153,7 @@ def data_create_message():
   return
 
 @app.route("/api/activities/home", methods=['GET'])
-@xray_recorder.capture('activities_home')
+#@xray_recorder.capture('activities_home')
 def data_home():
   access_token = extract_access_token(request.headers)
   try:
@@ -170,13 +170,13 @@ def data_home():
     data = HomeActivities.run()
   return data, 200
 
-# @app.route("/api/activities/notifications", methods=['GET'])
-# def data_notifications():
-#  data = NotificationsActivities.run()
-#  return data, 200
+@app.route("/api/activities/notifications", methods=['GET'])
+def data_notifications():
+  data = NotificationsActivities.run()
+  return data, 200
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
-@xray_recorder.capture('activities_users')
+#@xray_recorder.capture('activities_users')
 def data_handle(handle):
   model = UserActivities.run(handle)
   if model['errors'] is not None:
@@ -208,7 +208,7 @@ def data_activities():
   return
 
 @app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
-@xray_recorder.capture('activities_show')
+#@xray_recorder.capture('activities_show')
 def data_show_activity(activity_uuid):
   data = ShowActivity.run(activity_uuid=activity_uuid)
   return data, 200
