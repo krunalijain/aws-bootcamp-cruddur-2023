@@ -32,7 +32,7 @@ def lambda_handler(event, context):
         user_handle,
         user_cognito_id
       ]
-      cur.execute(sql,params)
+      cur.execute(sql,*params)
       conn.commit() 
 
     except (Exception, psycopg2.DatabaseError) as error:
@@ -42,4 +42,4 @@ def lambda_handler(event, context):
           cur.close()
           conn.close()
           print('Database connection closed.')
-    return event
+    return 
