@@ -110,5 +110,7 @@ psql $URL cruddur < $seed_path
 And to connect to PROD environment, you can suffix the command with PROD. `./bin/db-connect prod`
 
 ## RDS Instance
-I also created a Database instance in Amazon RDS Service. But, as it costs us so I had stoppped that temprorarily and was running only when required. I took the end point of that instance for the connection URL and security group ID and security group rules ID and added those in my `rds-update-sg-rules` shell script. Also had set the Inbound rules as Postgres : port 5432 to Custom : (My Gitpod IP).
+I also created a Database instance in Amazon RDS Service. But as it costs us, so I had stoppped that temprorarily and was running only when required. I took the end point of that instance for the connection URL; security group ID and security group rules ID and added those in my `rds-update-sg-rules` shell script. Also had set the Inbound rules as Postgres : port 5432 to Custom : (My Gitpod IP).
+
+These all tasks helped us to get the IP from which we were creating database/ inserting data. 
 
