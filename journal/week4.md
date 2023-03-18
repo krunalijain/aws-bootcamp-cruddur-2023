@@ -23,7 +23,7 @@ volumes:
 Then I connect psql in my terminal by running `psql -U postgres -localhost` and it ask for password then I am connected to Postgres in terminal.
 As I mentioned above we have certain bash scripts to create tables, drop tables, insert data into tables. Before this I had set env vars in Gitpod for the Connection Url and Prod Connection Url. 
 
-`./bin/db-connect` to connect to the psql 
+### `./bin/db-connect` to connect to the psql 
 ```
 #! /usr/bin/bash
 if [ "$1" = "prod" ]; then
@@ -36,7 +36,7 @@ fi
 psql $URL
 ```
 
-`./bin/db-create` to create a new table 'cruddur'
+### `./bin/db-create` to create a new table 'cruddur'
 ```
 #!  /usr/bin/bash
 
@@ -49,7 +49,7 @@ NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<< "$CONNECTION_URL")
 psql $NO_DB_CONNECTION_URL -c "create database cruddur;"
 ```
 
-`./bin/db-drop` to drop if the table is existing
+### `./bin/db-drop` to drop if the table is existing
 ```
 #!  /usr/bin/bash
 
@@ -62,7 +62,7 @@ NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<< "$CONNECTION_URL")
 psql $NO_DB_CONNECTION_URL -c "drop database cruddur;"
 ```
 
-`./bin/db-schem-load` to load the schema , which means to give the contents and set its' constraints.
+### `./bin/db-schem-load` to load the schema , which means to give the contents and set its' constraints.
 ```
 #! /usr/bin/bash
 
@@ -84,7 +84,7 @@ fi
 psql $URL cruddur < $schema_path
 ```
 
-`./bin/db-seed` to insert the data into schema loaded
+### `./bin/db-seed` to insert the data into schema loaded
 ```
 #! /usr/bin/bash
 
@@ -106,3 +106,6 @@ fi
 psql $URL cruddur < $seed_path
 
 ```
+
+And to connect to PROD environment, you can suffix the command with PROD. `./bin/db-connect prod`
+
