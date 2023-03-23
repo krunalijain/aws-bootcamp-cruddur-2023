@@ -42,4 +42,4 @@ def lambda_handler(event, context):
           cur.close()
           conn.close()
           print('Database connection closed.')
-    return 
+    return event
