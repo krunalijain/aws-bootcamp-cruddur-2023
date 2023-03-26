@@ -1,7 +1,7 @@
 import './ConfirmationPage.css';
 import React from "react";
 import { useParams } from 'react-router-dom';
-import { ReactComponent as Logo } from '../components/svg/logo.svg';
+import {ReactComponent as Logo} from '../components/svg/logo.svg';
 
 // [TODO] Authenication
 import { Auth } from 'aws-amplify';
@@ -32,10 +32,10 @@ export default function ConfirmationPage() {
       // does cognito always return english
       // for this to be an okay match?
       console.log(err)
-      if (err.message == 'Username cannot be empty') {
-        setCognitoErrors("You need to provide an email in order to send Resend Activiation Code")
-      } else if (err.message == "Username/client id combination not found.") {
-        setCognitoErrors("Email is invalid or cannot be found.")
+      if (err.message == 'Username cannot be empty'){
+        setCognitoErrors("You need to provide an email in order to send Resend Activiation Code")   
+      } else if (err.message == "Username/client id combination not found."){
+        setCognitoErrors("Email is invalid or cannot be found.")   
       }
     }
   }
@@ -53,19 +53,19 @@ export default function ConfirmationPage() {
   }
 
   let el_errors;
-  if (errors) {
+  if (errors){
     el_errors = <div className='errors'>{errors}</div>;
   }
 
 
   let code_button;
-  if (codeSent) {
+  if (codeSent){
     code_button = <div className="sent-message">A new activation code has been sent to your email</div>
   } else {
     code_button = <button className="resend" onClick={resend_code}>Resend Activation Code</button>;
   }
 
-  React.useEffect(() => {
+  React.useEffect(()=>{
     if (params.email) {
       setEmail(params.email)
     }
@@ -88,7 +88,7 @@ export default function ConfirmationPage() {
               <input
                 type="text"
                 value={email}
-                onChange={email_onchange}
+                onChange={email_onchange} 
               />
             </div>
             <div className='field text_field code'>
@@ -96,7 +96,7 @@ export default function ConfirmationPage() {
               <input
                 type="text"
                 value={code}
-                onChange={code_onchange}
+                onChange={code_onchange} 
               />
             </div>
           </div>
