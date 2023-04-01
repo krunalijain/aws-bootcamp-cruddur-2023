@@ -1,28 +1,26 @@
-FROM python:3.10-slim-buster
-#Inside container
-# make a new folder inside the container
+FROM 244933296429.dkr.ecr.us-east-1.amazonaws.com/cruddur-python:3.10-slim-buster
+
+# Inside Container
+# make a new folder inside container
 WORKDIR /backend-flask
-
-#Outside Conatiner -> Inside Container
-# This contains the libraries we want to install to run the app
+# Outside Container -> Inside Container
+# this contains the libraries want to install to run the app
 COPY requirements.txt requirements.txt
-
-#Inside Container
-# installs the python libraries used for the app
+# Inside Container
+# Install the python libraries used for the app
 RUN pip3 install -r requirements.txt
-
-#Outside Conatiner -> Inside Container
-# . period means everything in the current directory
-# . - first period represents /backend-flask (Outside Container)
-# . - second period represents /backend-flask (Inside Container)
+# Outside Container -> Inside Container
+# . means everything in the current directory
+# first period . - /backend-flask (outside container)
+# second period . /backend-flask (inside container)
 COPY . .
 
-# sets env vars (environment variables)
-# these are inside container and will remain set when the container is running 
-ENV FLASK_ENV=development
+# Set Enviroment Variables (Env Vars)
+# Inside Container and wil remain set when the container is running
+ENV FLASK_DEBUG=1
 
 EXPOSE ${PORT}
 
-#CMD (command)
+# CMD (Command)
 # python3 -m flask run --host=0.0.0.0 --port=4567
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
