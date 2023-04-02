@@ -3,7 +3,6 @@ import React from "react";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
 import { Auth } from 'aws-amplify';
-
 export default function RecoverPage() {
   // Username is Eamil
   const [username, setUsername] = React.useState('');
@@ -12,7 +11,6 @@ export default function RecoverPage() {
   const [code, setCode] = React.useState('');
   const [errors, setErrors] = React.useState('');
   const [formState, setFormState] = React.useState('send_code');
-
   const onsubmit_send_code = async (event) => {
     event.preventDefault();
     setErrors('')
@@ -33,7 +31,6 @@ export default function RecoverPage() {
     }
     return false
   }
-
   const username_onchange = (event) => {
     setUsername(event.target.value);
   }
@@ -46,12 +43,10 @@ export default function RecoverPage() {
   const code_onchange = (event) => {
     setCode(event.target.value);
   }
-
   let el_errors;
   if (errors){
     el_errors = <div className='errors'>{errors}</div>;
   }
-
   const send_code = () => {
     return (<form 
       className='recover_form'
@@ -72,11 +67,9 @@ export default function RecoverPage() {
       <div className='submit'>
         <button type='submit'>Send Recovery Code</button>
       </div>
-
     </form>
     )
   }
-
   const confirm_code = () => {
     return (<form 
       className='recover_form'
@@ -116,7 +109,6 @@ export default function RecoverPage() {
     </form>
     )
   }
-
   const success = () => {
     return (<form>
       <p>Your password has been successfully reset!</p>
@@ -124,7 +116,6 @@ export default function RecoverPage() {
     </form>
     )
     }
-
   let form;
   if (formState == 'send_code') {
     form = send_code()
@@ -135,7 +126,6 @@ export default function RecoverPage() {
   else if (formState == 'success') {
     form = success()
   }
-
   return (
     <article className="recover-article">
       <div className='recover-info'>
@@ -144,7 +134,6 @@ export default function RecoverPage() {
       <div className='recover-wrapper'>
         {form}
       </div>
-
     </article>
   );
 }
