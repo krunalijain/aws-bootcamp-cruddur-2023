@@ -112,10 +112,65 @@ And to connect to PROD environment, you can suffix the command with PROD. `./bin
 ## RDS Instance
 I also created a Database instance in Amazon RDS Service. But as it costs us, so I had stoppped that temprorarily and was running only when required. I took the end point of that instance for the connection URL; security group ID and security group rules ID and added those in my `rds-update-sg-rules` shell script. Also had set the Inbound rules as Postgres : port 5432 to Custom : (My Gitpod IP).
 
+There's a Provisioning done for RDS (You need to wait for arounf 10 mins to get it activated)
+```
+aws rds create-db-instance \
+  --db-instance-identifier cruddur-db-instance \
+  --db-instance-class db.t3.micro \
+  --engine postgres \
+  --engine-version  14.6 \
+  --master-username root \
+  --master-user-password huEE33z2Qvl383 \
+  --allocated-storage 20 \
+  --availability-zone ca-central-1a \
+  --backup-retention-period 0 \
+  --port 5432 \
+  --no-multi-az \
+  --db-name cruddur \
+  --storage-type gp2 \
+  --publicly-accessible \
+  --storage-encrypted \
+  --enable-performance-insights \
+  --performance-insights-retention-period 7 \
+  --no-deletion-protection
+```
+
 These all tasks helped us to get the IP from which we were creating database/ inserting data. And we used `psycopg3` driver
 
 ## AWS Lambda
-**Post Confirmation Lambda** : Here I added some code to get logs recorded in as I sign in to the cruddur app.
+**Post Confirmation Lambda** : Here I added some code to get logs recorded in as I sign in to the cruddur app. Created a Lambda Function by using psycopg3 lib. 
+https://pypi.org/project/psycopg2-binary/#files
+
+Lambda function
+```
+import json
+import psycopg2
+
+def lambda_handler(event, context):
+    user = event['request']['userAttributes']
+    try:
+        conn = psycopg2.connect(
+            host=(os.getenv('PG_HOSTNAME')),
+            database=(os.getenv('PG_DATABASE')),
+            user=(os.getenv('PG_USERNAME')),
+            password=(os.getenv('PG_SECRET'))
+        )
+        cur = conn.cursor()
+        cur.execute("INSERT INTO users (display_name, handle, cognito_user_id) VALUES(%s, %s, %s)", (user['name'], user['email'], user['sub']))
+        conn.commit() 
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+        
+    finally:
+        if conn is not None:
+            cur.close()
+            conn.close()
+            print('Database connection closed.')
+
+    return event
+    ```
+    
 
 
 
