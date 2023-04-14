@@ -299,7 +299,8 @@ As I am from timezone so I had to set my time to -3 hours.
   ```
   
 **Here is the result of how it looks after loadin the messages and adding my message in that group**
-[]!(https://user-images.githubusercontent.com/115455157/231931460-f1bee3fc-d39c-4966-875e-e2f93e6fea95.png)
+
+(![https://user-images.githubusercontent.com/115455157/231931460-f1bee3fc-d39c-4966-875e-e2f93e6fea95.png])
 
 
 
