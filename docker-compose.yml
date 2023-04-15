@@ -2,7 +2,7 @@ version: "3.8"
 services:
   backend-flask:
     env_file:
-      - backend-flask.env.erb
+      - backend-flask.env
     build: ./backend-flask
     ports:
     
@@ -14,7 +14,7 @@ services:
 
   frontend-react-js:
     env_file:
-      - frontend-react-js.env.erb
+      - frontend-react-js.env
     build: ./frontend-react-js
       
 # Healthchecks ----- 
@@ -80,7 +80,7 @@ volumes:
 # the name flag is a hack to change the default prepend folder
 # name when outputting the image names
 networks: 
-  internal-network:
+  cruddur-net:
     driver: bridge
     name: cruddur-net
 
