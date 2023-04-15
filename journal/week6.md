@@ -142,6 +142,102 @@ aws ecs register-task-definition --cli-input-json file://aws/task-definitions/fr
 
 Created Role Policies for these services and created a Task Role and attached that to Policies for CloudWatch and X-RAY
 
+**Permissions for CruddurServiceExecutionRole** (we gave Full access)
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParameters",
+                "ssm:GetParameter"
+            ],
+            "Resource": "arn:aws:ssm:us-east-1:<accountID>:parameter/cruddur/backend-flask/*"
+        }
+    ]
+}
+```
+For CloudWatch Permissions
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:Describe*",
+                "cloudwatch:*",
+                "logs:*",
+                "sns:*",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetRole",
+                "oam:ListSinks"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/events.amazonaws.com/AWSServiceRoleForCloudWatchEvents*",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "events.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "oam:ListAttachedLinks"
+            ],
+            "Resource": "arn:aws:oam:*:*:sink/*"
+        }
+    ]
+}
+```
+
+And created a Health-Check file for flask
+
+```
+#!/usr/bin/env python3
+
+import urllib.request
+
+response = urllib.request.urlopen('http://localhost:4567/api/health-check')
+if response.getcode() == 200:
+  print("Flask server is running")
+else:
+  print("Flask server is not running")
+  ```
+Then I created a `Dockerfile.prod` for Frontend Production environment
+
+**Install Session Manager Plugin - for Ubuntu**
+```
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+sudo dpkg -i session-manager-plugin.deb
+```
+To verify it is working 
+```
+session-manager-plugin
+```
+
+
 
 
 
