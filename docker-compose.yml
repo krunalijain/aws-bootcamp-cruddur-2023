@@ -2,44 +2,37 @@ version: "3.8"
 services:
   backend-flask:
     env_file:
-      - backend-flask.env
+      - backend-flask.env.erb
     build: ./backend-flask
     ports:
     
       - "4567:4567"
     volumes:
       - ./backend-flask:/backend-flask
+    networks:
+      - cruddur-net
+
   frontend-react-js:
-    environment:
-      REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
-      REACT_APP_AWS_PROJECT_REGION: "${AWS_DEFAULT_REGION}"
-      REACT_APP_AWS_COGNITO_REGION: "${AWS_DEFAULT_REGION}"
-      REACT_APP_AWS_USER_POOLS_ID: "us-east-1_nAKhI0clp"
-      REACT_APP_CLIENT_ID: "60gr0hf1bokknnmkrfkda1i72h"
+    env_file:
+      - frontend-react-js.env.erb
     build: ./frontend-react-js
       
 # Healthchecks ----- 
-    healthcheck:
-      test: curl --fail "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" || exit 1
-      interval: 60s
-      retries: 5
-      start_period: 20s
-      timeout: 10s
-
+  #  healthcheck:
+ #     test: curl --fail "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" || exit 1
+  #    interval: 60s
+  #    retries: 5
+   #   start_period: 20s
+  #    timeout: 10s
     ports:
       - "3000:3000"
+    networks:
+      - cruddur-net
     volumes:
       - ./frontend-react-js:/frontend-react-js
-  xray-daemon:
-    image: "amazon/aws-xray-daemon"
-    environment:
-      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
-      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
-      AWS_REGION: "us-east-1"
-    command:
-      - "xray -o -b xray-daemon:2000"
-    ports:
-      - 2000:2000/udp
+
+  
+
   dynamodb-local:
     # https://stackoverflow.com/questions/67533058/persist-local-dynamodb-data-in-volumes-lack-permission-unable-to-open-databa
     # We needed to add user:root to get this working.
@@ -49,6 +42,8 @@ services:
     container_name: dynamodb-local
     ports:
       - "8000:8000"
+    networks:
+      - cruddur-net
     volumes:
       - "./docker/dynamodb:/home/dynamodblocal/data"
     working_dir: /home/dynamodblocal
@@ -60,8 +55,23 @@ services:
       - POSTGRES_PASSWORD=password
     ports:
       - '5432:5432'
+    networks:
+      - cruddur-net 
     volumes: 
       - db:/var/lib/postgresql/data
+
+  xray-daemon:
+    image: "amazon/aws-xray-daemon"
+    environment:
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_REGION: "us-east-1"
+    command:
+      - "xray -o -b xray-daemon:2000"
+    ports:
+      - 2000:2000/udp
+    networks:
+      - cruddur-net
 
 volumes:
   db:
@@ -72,5 +82,5 @@ volumes:
 networks: 
   internal-network:
     driver: bridge
-    name: cruddur
+    name: cruddur-net
 
