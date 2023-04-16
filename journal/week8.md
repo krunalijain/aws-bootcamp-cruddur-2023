@@ -12,3 +12,30 @@
 - A lambda function that will pass our image
 - Some interactions with API and webhook.
 
+Installed cdk
+```
+npm install aws-cdk-g
+```
+
+Initialized CDK for TypeScript
+```
+cdk init app --language typescript
+```
+
+Imported Amazon S3 lib
+```
+import * as S3 from 'aws-cdk-lib/aws-s3';
+```
+
+Created S3 Bucket
+```typescript
+ createBucket(bucketName: string): s3.IBucket {
+    const bucket = new s3.Bucket(this, 'UploadsBucket', {
+      bucketName: bucketName,
+      removalPolicy: cdk.RemovalPolicy.DESTROY
+    });
+    return bucket;
+  }
+```
+
+
