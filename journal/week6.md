@@ -140,7 +140,7 @@ For Frontend
 aws ecs register-task-definition --cli-input-json file://aws/task-definitions/frontend-react-js.json
 ```
 
-Created Role Policies for these services and created a Task Role and attached that to Policies for CloudWatch and X-RAY
+Created Role Policies for these services and created a Task Role and attached that to Policies for CloudWatch and X-RAY.
 
 **Permissions for CruddurServiceExecutionRole** (we gave Full access)
 ```json
