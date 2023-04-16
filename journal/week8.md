@@ -23,7 +23,7 @@ cdk init app --language typescript
 ```
 
 Imported Amazon S3 lib
-```
+```ts
 import * as S3 from 'aws-cdk-lib/aws-s3';
 ```
 
