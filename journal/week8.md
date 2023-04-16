@@ -14,7 +14,7 @@
 
 Installed cdk
 ```
-npm install aws-cdk-g
+npm install aws-cdk -g
 ```
 
 Initialized CDK for TypeScript
