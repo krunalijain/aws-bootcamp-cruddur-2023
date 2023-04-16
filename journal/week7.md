@@ -122,4 +122,8 @@ EXPOSE ${PORT}
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567", "--no-debug","--no-debugger","--no-reload"]
 ```
 
+So after doing all this stuff I was abe to load my cruddur web app from my Domain and was able to message in a message group. 
+![](https://user-images.githubusercontent.com/115455157/232265996-a4c2c205-2a7b-4fff-8617-f6c469b92eb2.jpg)
+)
+
 
