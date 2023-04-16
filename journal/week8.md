@@ -43,4 +43,11 @@ Created S3 Bucket
 cdk bootstrap "aws://ACCOUNT_ID/REGION_NAME"
 ```
 
+Deployed CDK S3 bucket to AWS CloudFormation
+```
+cdk deploy
+```
+
+
+
 
