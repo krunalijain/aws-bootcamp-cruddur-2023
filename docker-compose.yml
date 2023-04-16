@@ -5,7 +5,6 @@ services:
       - backend-flask.env
     build: ./backend-flask
     ports:
-    
       - "4567:4567"
     volumes:
       - ./backend-flask:/backend-flask
@@ -30,8 +29,6 @@ services:
       - cruddur-net
     volumes:
       - ./frontend-react-js:/frontend-react-js
-
-  
 
   dynamodb-local:
     # https://stackoverflow.com/questions/67533058/persist-local-dynamodb-data-in-volumes-lack-permission-unable-to-open-databa
