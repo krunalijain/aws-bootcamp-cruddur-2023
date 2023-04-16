@@ -1,12 +1,58 @@
 # Week 7 — Solving CORS with a Load Balancer and Custom Domain
+## Fix Messaging in Prod Environment
 As both week 6-7 were merged, so it is hard to segregate things between these two weeks. Till now we have created a service for Backend in our ECS cluster and done with the Health-Check. Here we have fixed the Messaging in the Prod Environment and succefully created a Frontend Service in ECS cluster with success health-check status.
 
-Also restructured our bash scripts for `build`, `Tag & Push`, `Force Deploy`, `Register`.
+Also restructured our bash scripts for `build`, `Tag & Push`, `Force Deploy`, `Connect`.
 
 - **Build Script for Frontend** [code](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/bin/frontend/build)
 - **Connect Script for Frontend** [code](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/bin/frontend/connect)
 - **Push Script for Frontend** [code](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/bin/frontend/push)
 - **Deploy Script for Frontend** [code](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/bin/frontend/deploy)
+
+If you come accross and error that says 9 sessions active so for that we had created a script that kills all connections.
+```
+SELECT pg_terminate_backend(pid) 
+FROM pg_stat_activity 
+WHERE 
+-- don't kill my own connection!
+pid <> pg_backend_pid()
+-- don't kill the connections to other databases
+AND datname = 'cruddur';
+```
+
+## Fargate Configuration
+Create `register` script 
+For Backend
+```bash
+#! /usr/bin/bash
+
+ABS_PATH=$(readlink -f "$0")
+FRONTEND_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $FRONTEND_PATH)
+PROJECT_PATH=$(dirname $BIN_PATH)
+TASK_DEF_PATH="$PROJECT_PATH/aws/task-definitions/backend-flask.json"
+
+echo $TASK_DEF_PATH
+
+aws ecs register-task-definition \
+--cli-input-json "file://$TASK_DEF_PATH"
+```
+For Frontend
+```bash
+#! /usr/bin/bash
+
+ABS_PATH=$(readlink -f "$0")
+BACKEND_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $BACKEND_PATH)
+PROJECT_PATH=$(dirname $BIN_PATH)
+TASK_DEF_PATH="$PROJECT_PATH/aws/task-definitions/frontend-react-js.json"
+
+echo $TASK_DEF_PATH
+
+aws ecs register-task-definition \
+--cli-input-json "file://$TASK_DEF_PATH"
+```
+
 
 
 
