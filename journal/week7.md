@@ -10,7 +10,7 @@ Also restructured our bash scripts for `build`, `Tag & Push`, `Force Deploy`, `C
 - **Deploy Script for Frontend** [code](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/bin/frontend/deploy)
 
 If you come accross and error that says 9 sessions active so for that we had created a script that kills all connections.
-```
+```bash
 SELECT pg_terminate_backend(pid) 
 FROM pg_stat_activity 
 WHERE 
@@ -53,6 +53,9 @@ aws ecs register-task-definition \
 --cli-input-json "file://$TASK_DEF_PATH"
 ```
 
+## Domain
+My domain was purchased from Godaddy.com and had to be converted to Route 53. So I first created host in ROute 53 and then took those nameservers and replaced in Godaddy.com . So now there will be no records maintained as the records are transfered to Route 53.
+I referred [this youtube video](https://youtu.be/RI8oy-HGkIQ) for changing the nameservers and connecting Godaddy domain to Route 53.
 
 
 
