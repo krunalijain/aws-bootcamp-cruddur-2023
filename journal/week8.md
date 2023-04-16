@@ -38,4 +38,9 @@ Created S3 Bucket
   }
 ```
 
+**Bootstrapping Your Account** -> Process of provisioning resources of AWS CDK, before you can deploy CDK apps. Resources like S3 bucket for storing files, IAM roles grants Permissions needed for the deployments. 
+```
+cdk bootstrap "aws://ACCOUNT_ID/REGION_NAME"
+```
+
 
