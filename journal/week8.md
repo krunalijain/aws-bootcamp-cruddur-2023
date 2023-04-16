@@ -22,9 +22,10 @@ Initialized CDK for TypeScript
 cdk init app --language typescript
 ```
 
-Imported Amazon S3 lib
+Imported Amazon S3 lib, Lambda
 ```ts
 import * as S3 from 'aws-cdk-lib/aws-s3';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
 ```
 
 Created S3 Bucket
