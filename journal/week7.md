@@ -82,6 +82,8 @@ content = ERB.new(template).result(binding)
 filename = "backend-flask.env"
 File.write(filename, content)
 ```
+## To create network using docker
+`docker network create cruddur-net`
 
 
 
