@@ -49,6 +49,47 @@ Deployed CDK S3 bucket to AWS CloudFormation
 cdk deploy
 ```
 
+Then I created a nw folder `process-images` in `aws/lambdas` directory as we will be adding lambda functions in here. Created a n event via GUI.
+and made scripts for `test.js` file.
+```
+const {getClient, getOriginalImage, processImage, uploadProcessedImage} = require('./s3-image-processing.js')
+
+async function main(){
+  client = getClient()
+  const srcBucket = 'cruddur-thumbs'
+  const srcKey = 'avatar/original/data.jpg'
+  const dstBucket = 'cruddur-thumbs'
+  const dstKey = 'avatar/processed/data.png'
+  const width = 256
+  const height = 256
+
+  const originalImage = await getOriginalImage(client,srcBucket,srcKey)
+  console.log(originalImage)
+  const processedImage = await processImage(originalImage,width,height)
+  await uploadProcessedImage(dstBucket,dstKey,processedImage)
+}
+
+main()
+```
+Initialized npm in `process-images` path
+```
+npmm init -y
+```
+
+Installed `sharpjs` package
+```
+npm i sharp
+```
+Installed `aws-sdk` for S3
+```
+npm i @aws-sdk/client-s3
+```
+For working of Lambda Function we need to remove sharp, so we created a `bin/serverless/build` script for that
+```
+
+
+
+
 
 
 
