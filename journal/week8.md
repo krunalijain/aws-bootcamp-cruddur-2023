@@ -104,6 +104,11 @@ SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install --arch=x64 --platform=linux --libc=gli
 Created a S3 Trigger in Lambda Function 
 ![](https://user-images.githubusercontent.com/115455157/233837040-2cfbac42-c076-4dae-a1fb-8fa28efca6e3.jpg)
 
+Created S3 bucket with the name `assets.iamdevopsgeek.cloud` as `iamdevopsgeek.cloud` is my domain name. The Bucket has `avatars` as the object. In avatars we have two folders `original` and `processed`. And thy contains a `data.jpg` (Image)
+![](https://user-images.githubusercontent.com/115455157/233837217-1bb18f6b-ffb4-489d-8ce2-322c6071ae14.jpg)
+
+
+
 
 
 
