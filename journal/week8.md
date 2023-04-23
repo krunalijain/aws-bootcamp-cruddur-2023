@@ -86,6 +86,24 @@ npm i @aws-sdk/client-s3
 ```
 For working of Lambda Function we need to remove sharp, so we created a `bin/serverless/build` script for that
 ```
+#! /usr/bin/bash
+
+ABS_PATH=$(readlink -f "$0")
+SERVERLESS_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $SERVERLESS_PATH)
+PROJECT_PATH=$(dirname $BIN_PATH)
+SERVERLESS_PROJECT_PATH="$PROJECT_PATH/thumbing-serverless-cdk"
+
+cd $SERVERLESS_PROJECT_PATH
+
+npm install
+rm -rf node_modules/sharp
+SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install --arch=x64 --platform=linux --libc=glibc sharp
+```
+
+Created a S3 Trigger in Lambda Function 
+![](https://user-images.githubusercontent.com/115455157/233837040-2cfbac42-c076-4dae-a1fb-8fa28efca6e3.jpg)
+
 
 
 
