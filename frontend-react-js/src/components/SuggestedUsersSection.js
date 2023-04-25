@@ -1,5 +1,7 @@
 import './SuggestedUserSection.css';
 import SuggestedUserItem from '../components/SuggestedUserItem';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default function SuggestedUsersSection(props) {
   return (

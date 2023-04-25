@@ -2,6 +2,8 @@ import './MessageGroupItem.css';
 import { Link } from "react-router-dom";
 import { format_datetime, message_time_ago } from '../lib/DateTimeFormats';
 import { useParams } from 'react-router-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default function MessageGroupItem(props) {
   const params = useParams();

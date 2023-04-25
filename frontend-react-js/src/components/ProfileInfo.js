@@ -1,6 +1,7 @@
 import './ProfileInfo.css';
 import {ReactComponent as ElipsesIcon} from './svg/elipses.svg';
 import React from "react";
+import ReactDOM from 'react-dom';
 
 // [TODO] Authenication
 import { Auth } from 'aws-amplify';

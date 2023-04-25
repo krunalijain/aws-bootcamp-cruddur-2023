@@ -1,5 +1,7 @@
 import './MessageFeed.css';
 import MessageItem from './MessageItem';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default function MessageFeed(props) {
   return (

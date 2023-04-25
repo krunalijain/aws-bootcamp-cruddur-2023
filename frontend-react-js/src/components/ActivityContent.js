@@ -1,4 +1,6 @@
 import './ActivityContent.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { Link } from "react-router-dom";
 import { format_datetime, time_ago } from '../lib/DateTimeFormats';

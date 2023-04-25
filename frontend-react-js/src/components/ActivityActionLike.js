@@ -1,4 +1,6 @@
 import {ReactComponent as HeartIcon} from './svg/heart.svg';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default function ActivityActionLike(props) { 
   const onclick = (event) => {

@@ -2,6 +2,7 @@ import './ActivityForm.css';
 import React from "react";
 import process from 'process';
 import {ReactComponent as BombIcon} from './svg/bomb.svg';
+import ReactDOM from 'react-dom';
 
 export default function ActivityForm(props) {
   const [count, setCount] = React.useState(0);

@@ -1,4 +1,6 @@
 import './ActivityItem.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import ActivityContent  from '../components/ActivityContent';
 import ActivityActionReply  from '../components/ActivityActionReply';

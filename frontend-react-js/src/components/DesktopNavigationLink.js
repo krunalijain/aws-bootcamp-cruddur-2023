@@ -4,6 +4,8 @@ import {ReactComponent as NotificationsIcon} from './svg/notifications.svg';
 import {ReactComponent as ProfileIcon} from './svg/profile.svg';
 import {ReactComponent as MoreIcon} from './svg/more.svg';
 import {ReactComponent as MessagesIcon} from './svg/messages.svg';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default function DesktopNavigationLink(props) {
   const classes = ()=> {

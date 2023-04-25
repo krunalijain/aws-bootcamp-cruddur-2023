@@ -3,6 +3,8 @@ import Search from '../components/Search';
 import TrendingSection from '../components/TrendingsSection'
 import SuggestedUsersSection from '../components/SuggestedUsersSection'
 import JoinSection from '../components/JoinSection'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default function DesktopSidebar(props) {
   const trendings = [

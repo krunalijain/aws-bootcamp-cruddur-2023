@@ -1,5 +1,7 @@
 import './ProfileHeading.css';
 import EditProfileButton from '../components/EditProfileButton';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default function ProfileHeading(props) {
   const backgroundImage = 'url("https://assets.iamdevopsgeek.cloud/banners/banner.jpg")';
