@@ -109,6 +109,32 @@ Created S3 bucket with the name `assets.iamdevopsgeek.cloud` as `iamdevopsgeek.c
 
 ![](https://user-images.githubusercontent.com/115455157/233837217-1bb18f6b-ffb4-489d-8ce2-322c6071ae14.jpg)
 
+## Implemented User Profile
+In this we restructured the bash files `serverless` and also created separate folders for `Original` and `Processed` avatars or images. We also created `banners` folder where I have inserted `banner.jpg` image for the cover. 
+
+Edited **CloudFront** behaviours 
+
+![](https://user-images.githubusercontent.com/115455157/234907251-89f2b134-96a5-4f65-b4b2-0045c2bb3267.png)
+
+- Caching Optimized - Recommended for S3 (Cache Policy)
+- CORS Custom Origin (Origin Request Policy)
+- Simple CORS (Response Headers Policy)
+
+Go to **CloudFront** -> **Distributions** -> In that Distribution, select that and go to **Edit Origin** -> Copy this Bucket policcy and paste it in your S3 Bucket Policy.
+
+![](https://user-images.githubusercontent.com/115455157/234908843-f18067f6-3129-4fb6-8ac4-14e6a6b48ec0.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
