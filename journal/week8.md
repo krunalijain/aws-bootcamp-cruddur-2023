@@ -124,6 +124,39 @@ Go to **CloudFront** -> **Distributions** -> In that Distribution, select that a
 
 ![](https://user-images.githubusercontent.com/115455157/234908843-f18067f6-3129-4fb6-8ac4-14e6a6b48ec0.jpg)
 
+## Troubleshooting 
+**1)** My `cdk deploy` was showing this error **"NoSuchBucket"**
+
+![](https://user-images.githubusercontent.com/115455157/234910401-b76b3085-075c-485b-b884-f0ce2ce3a6be.png)
+
+So, the solution was that I was giving wrong bucket name . When we had to create a bucket in s3 at that time I created it `assests.iamdevopsgeek.cloud` whereas, I was supposed to give name as `assets.iamdevopsgeek.cloud` . So this `assets` spelling caused this error. 
+
+**2)** Then when i runned the 3000 port and was trying to load, it showed e **React must be in scope using JSX** error.
+
+![](https://user-images.githubusercontent.com/115455157/234911454-533e881b-a199-4269-8518-4f6b581d5e6c.png)
+
+**Solution:** I imported `react` module in every file that showed up this error.
+
+**3)** TypeError: Cannot read properties of Undefined (reading 'display_name')
+
+![](https://user-images.githubusercontent.com/115455157/234912339-0602d0fc-3353-4b66-b168-8fd0ca9abfaa.png)
+
+**Solution:** I had hard-coded user handle in `Desktopnavigation.js` file. Instead of `@andrewbrown` I replaced it with `@krunalijain`
+
+**4)** My `backend` conatiner was not working, it showed `AttributeError: 'Flask' object has no attribute 'before_first_request'. Did you mean 'got_first_request'?`
+
+**Solution:** So, here one of the bootamper helped me solve this error. Instead of `@app.before_first_request` i replaced it with -> `with app.app_context():`. As Flask 2.3 doesn't supports `before_first_request`.
+
+**Profile Page after Implementation**
+![](https://user-images.githubusercontent.com/115455157/234914490-931aad9d-fb40-4f93-8a16-0405dcc6e599.png)
+
+
+
+
+
+
+
+
 
 
 
