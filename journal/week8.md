@@ -150,6 +150,19 @@ So, the solution was that I was giving wrong bucket name . When we had to create
 **Profile Page after Implementation**
 ![](https://user-images.githubusercontent.com/115455157/234914490-931aad9d-fb40-4f93-8a16-0405dcc6e599.png)
 
+_______________________________________________________________________________________________________________________________________________________________________
+
+## Implement Migrations Backend Endoint and Profile Form
+Created this script so taht we can move our file of `front-react-js` folder anywhere, and we don't have to change the path.
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}
+```
+
 
 
 
