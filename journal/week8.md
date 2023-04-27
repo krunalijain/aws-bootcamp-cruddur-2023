@@ -124,7 +124,7 @@ Go to **CloudFront** -> **Distributions** -> In that Distribution, select that a
 
 ![](https://user-images.githubusercontent.com/115455157/234908843-f18067f6-3129-4fb6-8ac4-14e6a6b48ec0.jpg)
 
-## Troubleshooting 
+# Troubleshooting 
 **1)** My `cdk deploy` was showing this error **"NoSuchBucket"**
 
 ![](https://user-images.githubusercontent.com/115455157/234910401-b76b3085-075c-485b-b884-f0ce2ce3a6be.png)
