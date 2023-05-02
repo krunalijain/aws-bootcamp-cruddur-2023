@@ -74,9 +74,11 @@ Also helped me to solve the Security Quiz.
 
 **Security Video Link :** https://www.youtube.com/watch?v=OjZz4D0B-cA&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=25
 
-## Homework Challeneg
-Did Health check for frontend, pushed iamges to Docker Repositories and installed cruddur via EC2.
+## Homework Challenges
+Did **Health-Check for frontend**, **pushed iamges to Docker Repositories** and **Launched Cruddur via EC2**.
+
 Here is my article link for EC2 and Docker images (A complete step-by-step process) : https://krunali.hashnode.dev/launch-ec2-instance-with-docker-installed
+
 And here is the HealthCheck POW : https://www.linkedin.com/posts/krunalijain_docker-aws-awscommunity-activity-7036664671843622912-jRqf?utm_source=share&utm_medium=member_desktop
  
 
