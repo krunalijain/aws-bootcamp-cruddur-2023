@@ -60,7 +60,7 @@ export default function ProfileForm(props) {
       }})
       let data = await res.json();
       if (res.status === 200) {
-        setPresignedurl(data.url)
+        presignedurl(data.url)
       } else {
         console.log(res)
       }
