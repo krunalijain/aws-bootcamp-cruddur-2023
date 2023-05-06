@@ -4,32 +4,36 @@ import process from 'process';
 import {getAccessToken} from 'lib/CheckAuth';
 
 export default function ProfileForm(props) {
-  const [bio, setBio] = React.useState(0);
-  const [displayName, setDisplayName] = React.useState(0);
+  const [bio, setBio] = React.useState('');
+  const [displayName, setDisplayName] = React.useState('');
 
   React.useEffect(()=>{
     console.log('useEffects',props)
-    setBio(props.profile.bio);
+    setBio(props.profile.bio || "");
     setDisplayName(props.profile.display_name);
-  }, [props.profile])
+  }, [props.profile]);
 
-  const s3uploadkey = async (event)=> {
+  const s3uploadkey = async (extension)=> {
+    console.log('ext in s3uploadkey',extension)
     try {
-      console.log('s3upload')
-      const backend_url = "https://z7retz0xri.execute-api.us-east-1.amazonaws.com/avatars/key_upload"
+      const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
       await getAccessToken()
       const access_token = localStorage.getItem("access_token")
-      const res = await fetch(backend_url, {
+      const json = {
+        extension: extension
+      }
+      const res = await fetch(gateway_url, {
         method: "POST",
+        body: JSON.stringify(json),
         headers: {
-          'Origin': "https://3000-krunalijain-awsbootcamp-i8adqr9w0l3.ws-us96b.gitpod.io",
+          'Origin': process.env.REACT_APP_FRONTEND_URL,
           'Authorization': `Bearer ${access_token}`,
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-      }})
+        }
+      })
       let data = await res.json();
       if (res.status === 200) {
-        console.log('presigned url',data)
         return data.url
       } else {
         console.log(res)
@@ -47,9 +51,10 @@ export default function ProfileForm(props) {
     const type = file.type
     const preview_image_url = URL.createObjectURL(file)
     console.log(filename,size,type)
-
-    const presignedurl = await s3uploadkey()
-    console.log('pp',presignedurl)
+    const fileparts = filename.split('.')
+    const extension = fileparts[fileparts.length-1]
+    const presignedurl = await s3uploadkey(extension)
+    console.log('presignedurl: ',presignedurl)
     try {
       console.log('s3upload')
       const res = await fetch(presignedurl, {
@@ -58,9 +63,8 @@ export default function ProfileForm(props) {
         headers: {
           'Content-Type': type
       }})
-      let data = await res.json();
       if (res.status === 200) {
-        presignedurl(data.url)
+        
       } else {
         console.log(res)
       }
@@ -84,7 +88,7 @@ export default function ProfileForm(props) {
         },
         body: JSON.stringify({
           bio: bio,
-          display_name: displayName
+          display_name: displayName,
         }),
       });
       let data = await res.json();
@@ -117,37 +121,27 @@ export default function ProfileForm(props) {
   if (props.popped === true) {
     return (
       <div className="popup_form_wrap profile_popup" onClick={close}>
-        <form 
-          className='profile_form popup_form'
-          onSubmit={onsubmit}
-        >
+        <form className="profile_form popup_form" onSubmit={onsubmit}>
           <div className="popup_heading">
             <div className="popup_title">Edit Profile</div>
-            <div className='submit'>
-              <button type='submit'>Save</button>
+            <div className="submit">
+              <button type="submit">Save</button>
             </div>
           </div>
           <div className="popup_content">
-
-          
           <input type="file" name="avatarupload" onChange={s3upload} />
-
             <div className="field display_name">
               <label>Display Name</label>
               <input
                 type="text"
                 placeholder="Display Name"
                 value={displayName}
-                onChange={display_name_onchange} 
+                onChange={display_name_onchange}
               />
             </div>
             <div className="field bio">
               <label>Bio</label>
-              <textarea
-                placeholder="Bio"
-                value={bio}
-                onChange={bio_onchange} 
-              />
+              <textarea placeholder="Bio" value={bio} onChange={bio_onchange} />
             </div>
           </div>
         </form>
