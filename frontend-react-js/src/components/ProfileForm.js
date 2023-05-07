@@ -9,12 +9,12 @@ export default function ProfileForm(props) {
 
   React.useEffect(()=>{
     console.log('useEffects',props)
-    setBio(props.profile.bio || "");
+    setBio(props.profile.bio || '');
     setDisplayName(props.profile.display_name);
   }, [props.profile]);
 
   const s3uploadkey = async (extension)=> {
-    console.log('ext in s3uploadkey',extension)
+    console.log('ext',extension)
     try {
       const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
       await getAccessToken()
