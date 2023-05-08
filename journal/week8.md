@@ -153,7 +153,7 @@ So, the solution was that I was giving wrong bucket name . When we had to create
 _______________________________________________________________________________________________________________________________________________________________________
 
 ## Implement Migrations Backend Endoint and Profile Form
-Created this script so taht we can move our file of `front-react-js` folder anywhere, and we don't have to change the path.
+Created this script so that we can move our file of `front-react-js` folder anywhere, and we don't have to change the path.
 ```json
 {
   "compilerOptions": {
@@ -162,7 +162,7 @@ Created this script so taht we can move our file of `front-react-js` folder anyw
   "include": ["src"]
 }
 ```
-
+Created a ![`migrate` script](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/bin/db/migrate)
 
 
 
