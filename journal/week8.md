@@ -280,7 +280,7 @@ for migration_file in migration_files:
         set_last_successful_run(file_time)
 ```
 
-Created a Table `public.schema_information
+Created a Table `public.schema_information`
 
 ```
 CREATE TABLE IF NOT EXISTS public.schema_information (
