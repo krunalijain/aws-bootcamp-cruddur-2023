@@ -316,7 +316,7 @@ THUMBING_S3_FOLDER_OUTPUT="avatars"
 ```
 By keeping the above envs, I could upload object passed with cognito_user_uuid in the right folder that is - `assets.iamdevopsgeek.cloud/avatars/`.
 
-Created a `ProfileAvatar.js` for rendering avatar profile image.
+**Created a `ProfileAvatar.js` for rendering avatar profile image.**
 ```
 import './ProfileAvatar.css';
 
@@ -336,10 +336,6 @@ export default function ProfileAvatar(props) {
   );
 }
 ```
-
-The final UI after uploading profile iamge 
-![](https://user-images.githubusercontent.com/115455157/236810740-7f448ba9-1d15-4a6b-a3b5-f9ee407546ac.jpg)
-
 ## Sharp Module Not Found
 
 ![](https://user-images.githubusercontent.com/115455157/236811376-bfbf2d24-cf26-48d7-a019-6a5e2b741395.jpg)
@@ -348,6 +344,10 @@ I got this error when I was uploading image. Steps I took to solve this:
 -> `npm i sharp`
 -> `npm i @aws-sdk/client-s3`
 -> cdk deploy
+
+
+## The final UI after uploading profile iamge 
+![](https://user-images.githubusercontent.com/115455157/236810740-7f448ba9-1d15-4a6b-a3b5-f9ee407546ac.jpg)
 
 
 
