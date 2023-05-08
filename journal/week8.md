@@ -302,11 +302,52 @@ I was facing issue with Authorization Test, the logs were not generating. Later 
 To prevent CORS, one of the bootcamper (Shehzad Ali) suggested me to detach Lambda from OPTIONS in Authorization section, so that it will block it prior only and won't allow to affect Lambda Function.
 
 ![](https://user-images.githubusercontent.com/115455157/236809122-7d189c8a-4cfc-4259-a17c-f8d26ce78bb6.jpg)
+
 Because of this I didn't had to struggle much with CORS. 
 
 I had also got presignedurl easily. Actually there was a silly mistake in `ProfileForm.js` - instead of `presignedurl`, I had written it as `setPresignedurl` in one code block. So may be that was one of the thing that was causing error.
 
 ## S3 Bucket and Objects
+At first I didn't get my cognito_user_uuid Object in my `assets.iamdevopsgeek.cloud` bucket.
+I had to change the paths of the bucket objects uploading, in `/thumbing-serverless-cdk/.env.example` 
+```
+THUMBING_S3_FOLDER_INPUT=""
+THUMBING_S3_FOLDER_OUTPUT="avatars"
+```
+By keeping the above envs, I could upload object passed with cognito_user_uuid in the right folder that is - `assets.iamdevopsgeek.cloud/avatars/`.
+
+Created a `ProfileAvatar.js` for rendering avatar profile image.
+```
+import './ProfileAvatar.css';
+
+export default function ProfileAvatar(props) {
+  const backgroundImage = `url("https://assets.iamdevopsgeek.cloud/avatars/${props.id}.jpg")`;
+  const styles = {
+    backgroundImage: backgroundImage,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  };
+
+  return (
+    <div 
+      className="profile-avatar"
+      style={styles}
+    ></div>
+  );
+}
+```
+
+The final UI after uploading profile iamge 
+![](https://user-images.githubusercontent.com/115455157/236810740-7f448ba9-1d15-4a6b-a3b5-f9ee407546ac.jpg)
+
+## Sharp Module Not Found
+
+![](https://user-images.githubusercontent.com/115455157/236811376-bfbf2d24-cf26-48d7-a019-6a5e2b741395.jpg)
+
+I got this error when I was uploading image. Steps I took to solve this:
+-> `npm i sharp`
+-> `npm i @aws-sdk/client-s3`
+-> cdk deploy
 
 
 
