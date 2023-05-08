@@ -153,7 +153,7 @@ So, the solution was that I was giving wrong bucket name . When we had to create
 _______________________________________________________________________________________________________________________________________________________________________
 
 ## Implement Migrations Backend Endoint and Profile Form
-Created this script so taht we can move our file of `front-react-js` folder anywhere, and we don't have to change the path.
+Created this script so that we can move our file of `front-react-js` folder anywhere, and we don't have to change the path.
 ```json
 {
   "compilerOptions": {
@@ -162,8 +162,192 @@ Created this script so taht we can move our file of `front-react-js` folder anyw
   "include": ["src"]
 }
 ```
+**Migrate Script**
+It retrieves the timestamp of the last successful migration run from the database, and then executes any pending migrations that have not been applied since that timestamp.
+
+```
+#!/usr/bin/env python3
+
+import os
+import sys
+import glob
+import re
+import time
+import importlib
+
+current_path = os.path.dirname(os.path.abspath(__file__))
+parent_path = os.path.abspath(os.path.join(current_path, '..', '..','backend-flask'))
+sys.path.append(parent_path)
+from lib.db import db
+
+def get_last_successful_run():
+  sql = """
+    SELECT last_successful_run
+    FROM public.schema_information
+    LIMIT 1
+  """
+  return int(db.query_value(sql,{},verbose=False))
+
+def set_last_successful_run(value):
+  sql = """
+  UPDATE schema_information
+  SET last_successful_run = %(last_successful_run)s
+  WHERE id = 1
+  """
+  db.query_commit(sql,{'last_successful_run': value},verbose=False)
+  return value
+
+last_successful_run = get_last_successful_run()
+
+migrations_path = os.path.abspath(os.path.join(current_path, '..', '..','backend-flask','db','migrations'))
+sys.path.append(migrations_path)
+migration_files = glob.glob(f"{migrations_path}/*")
 
 
+for migration_file in migration_files:
+  filename = os.path.basename(migration_file)
+  module_name = os.path.splitext(filename)[0]
+  match = re.match(r'^\d+', filename)
+  if match:
+    file_time = int(match.group())
+    if last_successful_run <= file_time:
+      mod = importlib.import_module(module_name)
+      print('=== running migration: ',module_name)
+      mod.migration.migrate()
+      timestamp = str(time.time()).replace(".","")
+      last_successful_run = set_last_successful_run(timestamp)
+
+```
+
+**Rollback Script**
+It retrieves the last successful run time from the database, compares it with the timestamps of migration files, and if there are migrations that occurred after the last successful run, it rolls back those migrations one by one.
+
+```
+#!/usr/bin/env python3
+
+import os
+import sys
+import glob
+import re
+import time
+import importlib
+
+current_path = os.path.dirname(os.path.abspath(__file__))
+parent_path = os.path.abspath(os.path.join(current_path, '..', '..','backend-flask'))
+sys.path.append(parent_path)
+from lib.db import db
+
+def get_last_successful_run():
+  sql = """
+    SELECT last_successful_run
+    FROM public.schema_information
+    LIMIT 1
+  """
+  return int(db.query_value(sql,{},verbose=False))
+
+def set_last_successful_run(value):
+  sql = """
+  UPDATE schema_information
+  SET last_successful_run = %(last_successful_run)s
+  WHERE id = 1
+  """
+  db.query_commit(sql,{'last_successful_run': value})
+  return value
+
+last_successful_run = get_last_successful_run()
+
+migrations_path = os.path.abspath(os.path.join(current_path, '..', '..','backend-flask','db','migrations'))
+sys.path.append(migrations_path)
+migration_files = glob.glob(f"{migrations_path}/*")
+
+
+last_migration_file = None
+for migration_file in migration_files:
+  if last_migration_file == None:
+    filename = os.path.basename(migration_file)
+    module_name = os.path.splitext(filename)[0]
+    match = re.match(r'^\d+', filename)
+    if match:
+      file_time = int(match.group())
+      print("==<><>")
+      print(last_successful_run, file_time)
+      print(last_successful_run > file_time)
+      if last_successful_run > file_time:
+        last_migration_file = module_name
+        mod = importlib.import_module(module_name)
+        print('=== rolling back: ',module_name)
+        mod.migration.rollback()
+        set_last_successful_run(file_time)
+```
+
+Created a Table `public.schema_information`
+
+```
+CREATE TABLE IF NOT EXISTS public.schema_information (
+  id integer UNIQUE,
+  last_successful_run text
+);
+INSERT INTO public.schema_information (id, last_successful_run)
+VALUES(1, '0')
+ON CONFLICT (id) DO NOTHING;
+```
+This will insert data only once.
+
+## Lambda CruddurApiGatewayAuthorization Test
+I was facing issue with Authorization Test, the logs were not generating. Later in office hours Andrew(organizer) suggested to attach lambda to OPTIONS in Integrations section.
+
+![](https://user-images.githubusercontent.com/115455157/236808623-2052ca0f-05b0-4c77-8ece-24b6eb39ecfd.jpg)
+
+## CORS
+To prevent CORS, one of the bootcamper (Shehzad Ali) suggested me to detach Lambda from OPTIONS in Authorization section, so that it will block it prior only and won't allow to affect Lambda Function.
+
+![](https://user-images.githubusercontent.com/115455157/236809122-7d189c8a-4cfc-4259-a17c-f8d26ce78bb6.jpg)
+
+Because of this I didn't had to struggle much with CORS. 
+
+I had also got presignedurl easily. Actually there was a silly mistake in `ProfileForm.js` - instead of `presignedurl`, I had written it as `setPresignedurl` in one code block. So may be that was one of the thing that was causing error.
+
+## S3 Bucket and Objects
+At first I didn't get my cognito_user_uuid Object in my `assets.iamdevopsgeek.cloud` bucket.
+I had to change the paths of the bucket objects uploading, in `/thumbing-serverless-cdk/.env.example` 
+```
+THUMBING_S3_FOLDER_INPUT=""
+THUMBING_S3_FOLDER_OUTPUT="avatars"
+```
+By keeping the above envs, I could upload object passed with cognito_user_uuid in the right folder that is - `assets.iamdevopsgeek.cloud/avatars/`.
+
+**Created a `ProfileAvatar.js` for rendering avatar profile image.**
+```
+import './ProfileAvatar.css';
+
+export default function ProfileAvatar(props) {
+  const backgroundImage = `url("https://assets.iamdevopsgeek.cloud/avatars/${props.id}.jpg")`;
+  const styles = {
+    backgroundImage: backgroundImage,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  };
+
+  return (
+    <div 
+      className="profile-avatar"
+      style={styles}
+    ></div>
+  );
+}
+```
+## Sharp Module Not Found
+
+![](https://user-images.githubusercontent.com/115455157/236811376-bfbf2d24-cf26-48d7-a019-6a5e2b741395.jpg)
+
+I got this error when I was uploading image. Steps I took to solve this:
+-> `npm i sharp`
+-> `npm i @aws-sdk/client-s3`
+-> cdk deploy
+
+
+## The final UI after uploading profile iamge 
+![](https://user-images.githubusercontent.com/115455157/236810740-7f448ba9-1d15-4a6b-a3b5-f9ee407546ac.jpg)
 
 
 
