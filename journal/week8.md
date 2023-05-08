@@ -293,6 +293,24 @@ ON CONFLICT (id) DO NOTHING;
 ```
 This will insert data only once.
 
+## Lambda CruddurApiGatewayAuthorization Test
+I was facing issue with Authorization Test, the logs were not generating. Later in office hours Andrew(organizer) suggested to attach lambda to OPTIONS in Integrations section.
+
+![](https://user-images.githubusercontent.com/115455157/236808623-2052ca0f-05b0-4c77-8ece-24b6eb39ecfd.jpg)
+
+## CORS
+To prevent CORS, one of the bootcamper (Shehzad Ali) suggested me to detach Lambda from OPTIONS in Authorization section, so that it will block it prior only and won't allow to affect Lambda Function.
+
+![](https://user-images.githubusercontent.com/115455157/236809122-7d189c8a-4cfc-4259-a17c-f8d26ce78bb6.jpg)
+Because of this I didn't had to struggle much with CORS. 
+
+I had also got presignedurl easily. Actually there was a silly mistake in `ProfileForm.js` - instead of `presignedurl`, I had written it as `setPresignedurl` in one code block. So may be that was one of the thing that was causing error.
+
+## S3 Bucket and Objects
+
+
+
+
 
 
 
