@@ -51,7 +51,7 @@ Edit `bake stage`, add an action group.
 
 -> Action name: `build`. 
 
-Note: In AWS you can not give names according to your choice, they are name specific and rpebuilt names are there to use. If you name according to your choice then the pipeline might fail.
+Note: In AWS you can not give names according to your choice, they are name specific and pre-built names are there to use. If you name according to your choice then the pipeline might fail.
 
 -> Action provider: `AWS CodeBuild`
 
