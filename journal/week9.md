@@ -123,13 +123,15 @@ It mainly requires `getAuthorizationToken` permission. So I went to IAM Roles ->
     ]
   }
   ```
-  
+  Added this JSON policy in IAM Role of CodeBuild.
  ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/2910e720-caeb-433f-832e-ad06d2e3c72a)
  
  ## Build Succeful
  I got a success status after 10mins, as it takes time to spin up ECS, ALB tasks, and other tasks to load.
  
  ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/6e02f005-15f0-4838-bfc5-e273a3a54dee)
+ 
+ So that was it in this week-9 all about building CI/CD CodePipeline and make it successfully working. 
 
 
 
