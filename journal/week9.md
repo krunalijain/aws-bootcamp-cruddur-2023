@@ -127,11 +127,16 @@ It mainly requires `getAuthorizationToken` permission. So I went to IAM Roles ->
  ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/2910e720-caeb-433f-832e-ad06d2e3c72a)
  
  ## Build Succeful
- I got a success status after 10mins, as it takes time to spin up ECS, ALB tasks, and other tasks to load.
+ My CodeBuild was succeful.
  
  ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/6e02f005-15f0-4838-bfc5-e273a3a54dee)
  
- So that was it in this week-9 all about building CI/CD CodePipeline and make it successfully working. 
+ 
+Then I rebuild the pipeline and I got success status for `Source`, `Build`, and `Deploy`. I got a success status after 10mins in `Deploy Stage`, as it takes time to spin up ECS, ALB tasks, and other tasks to load.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/f649d069-51ae-4481-b442-9e28a14573dd)
+
+So that was it in this week-9 all about building CI/CD CodePipeline and make it successfully working. 
 
 
 
