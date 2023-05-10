@@ -46,13 +46,21 @@ Then click on **create pull request** and **confirm merge.**
 
 ## Add extra stage (build)
 Added a **(bake)** stage in between **Source** and **Deploy** 
+
 Edit `bake stage`, add an action group.
+
 -> Action name: `build`. 
+
 Note: In AWS you can not give names according to your choice, they are name specific and rpebuilt names are there to use. If you name according to your choice then the pipeline might fail.
+
 -> Action provider: `AWS CodeBuild`
+
 -> Region: `us-east-1` (give your own region)
+
 -> Input Artifacts: `SourceArtifact`
+
 -> Project name: `cruddur-backend-flask-bake-image`(for this we first need to have our project existing in codebuild).
+
 
 ## buildspec.yml file for CodeBuild
 ```
