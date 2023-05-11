@@ -104,3 +104,10 @@ aws_ecs_cluster_configuration {
 }
 ```
 
+To **generate your rules or guard file** you need to run this command with specifying the template path.
+```
+cfn-guard rulegen --template /workspace/aws-bootcamp-cruddur-2023/aws/cfn/template.yaml
+```
+
+
+
