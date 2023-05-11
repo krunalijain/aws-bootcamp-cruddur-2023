@@ -49,14 +49,14 @@ aws cloudformation deploy \
 
 There are some guard rules or taskdefinitions for ECS Cluster. This is called as **Policy-as-Code**. The purpose of this is that, they help us to configure the resources in a pattern/way that we want to. If, the resources are being configured against the policy then it will prompt or let us know that this is not the rule for this resource to be configured. So that's how it works.
 
-Before you create these rules/policies, you need to install `cfn-guard`
+**Before you create these rules/policies, you need to install `cfn-guard`**
 
 ```
 cargo install cfn-guard
 ```
 
 
-`task-definition.guard`
+**Then we created `task-definition.guard` in `aws/cfn` folder** 
 
 ```
 aws_ecs_cluster_configuration {
