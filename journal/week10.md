@@ -108,6 +108,18 @@ To **generate your rules or guard file** you need to run this command with speci
 ```
 cfn-guard rulegen --template /workspace/aws-bootcamp-cruddur-2023/aws/cfn/template.yaml
 ```
+**Install `cfn-lint`.** This basically works as validation tool for Cloudformation templates.
+```
+pip install cfn-lint
+```
+
+Then we created s3 bucket `cfn-lint-20` and deployed that template into s3 bucket.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/ff4821e2-aeab-4b16-9731-59db2e1d9718)
+
+
+
+
 
 
 
