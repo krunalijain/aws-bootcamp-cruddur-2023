@@ -226,6 +226,9 @@ RouteTable:
  ```
  
  **NOTE: Created 3 subnets by following the similar code pattern with different IPs**
+ 
+### CFN Parameters
+CFN will now allow you to hardcode the values in it's `template.yaml` file. So always make sure to set parameters. You can refer the [AWS Documentation of CFN Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) to understand clearly and know what syntax is being followed.
 
 
 
