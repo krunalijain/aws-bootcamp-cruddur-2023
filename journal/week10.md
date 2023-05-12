@@ -2,7 +2,7 @@
 
 ## Creation of  CFN template
 In the `aws` folder we created a `cfn` folder and created a `template.yaml` file. Where it Sets up a ECS empty Cluster.
-```
+```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Description: |
   Setup ECS Cluster
@@ -20,7 +20,7 @@ Resources:
 ```
 
 Then we created a `cluster-deploy` bash script in `bin/cfn` folder which will deploy these tasks into that empty template (ECS Cluster).
-```
+```bash
 #! /usr/bin/env bash
 set -e # stop the execution of the script if it fails
 
@@ -58,7 +58,7 @@ cargo install cfn-guard
 
 **Then we created `task-definition.guard` in `aws/cfn` folder** 
 
-```
+```guard
 aws_ecs_cluster_configuration {
   rules = [
     {
@@ -119,8 +119,45 @@ Then we created s3 bucket `cfn-lint-20` and deployed that template into s3 bucke
 
 ## Networking Layer
 We created a networking layer where we require VPC, IGW, Routing tables, Subnetes (3) for flexibility to have in 3 different Availablity Zones.
-In VPC section,we have CIDR property- where we have given a CIDR IP address as `10.0.0.0/16`. SO in here, `/16` is the size of the IP addresses available in that particular CIDR block. You can search it on [CIDR.xyz](CIDR.xyz) site to know **how many IPs are available in one particular IP size?** 
+In VPC section, we have CIDR property- where we have given a CIDR IP address as `10.0.0.0/16`. So in here, `/16` is the size of the IP addresses available in that particular CIDR block. You can search it on [CIDR.xyz](CIDR.xyz) site to know **how many IPs are available in one particular IP size?** 
 There are redundant links which will help us if one link fails then other will work in that case and it will prevent our apps downtime.
+
+Once we deploy after creating VPC, it will automatically creates a Route Table with no resources and subnets in you VPC Service.
+
+### Creation of VPC
+```yaml
+Resources:
+  VPC:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCidrBlock
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: default
+      Tags:
+        - Key: Name
+          Value: !Sub "${AWS::StackName}VPC"
+```
+
+### Creation of IGW (Internet gateway)
+```yaml
+Resources:
+IGW:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub "${AWS::StackName}IGW"
+  AttachIGW:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref IGW
+```
+
+
 
 
 
