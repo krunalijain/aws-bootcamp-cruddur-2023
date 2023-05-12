@@ -179,7 +179,7 @@ RouteTable:
       RouteTableId: !Ref RouteTable
       GatewayId: !Ref IGW
       DestinationCidrBlock: 0.0.0.0/0
- ```
+ ``` 
  
       
 
