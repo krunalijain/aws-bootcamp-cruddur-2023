@@ -124,7 +124,7 @@ There are redundant links which will help us if one link fails then other will w
 
 Once we deploy after creating VPC, it will automatically creates a Route Table with no resources and subnets in you VPC Service.
 
-### Creation of VPC
+### Create VPC
 ```yaml
 Resources:
   VPC:
@@ -140,7 +140,7 @@ Resources:
           Value: !Sub "${AWS::StackName}VPC"
 ```
 
-### Creation of IGW (Internet gateway)
+### Create adn Attach IGW (Internet gateway)
 ```yaml
 Resources:
 IGW:
@@ -156,6 +156,7 @@ IGW:
       VpcId: !Ref VPC
       InternetGatewayId: !Ref IGW
 ```
+
 
 
 
