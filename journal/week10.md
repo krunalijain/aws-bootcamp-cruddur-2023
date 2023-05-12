@@ -158,7 +158,7 @@ IGW:
 ```
 
 ### Create Route Table
-```
+```yml
 RouteTable:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html
     Type: AWS::EC2::RouteTable
