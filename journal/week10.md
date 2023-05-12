@@ -58,7 +58,7 @@ cargo install cfn-guard
 
 **Then we created `task-definition.guard` in `aws/cfn` folder** 
 
-```guard
+```yaml
 aws_ecs_cluster_configuration {
   rules = [
     {
