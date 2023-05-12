@@ -170,7 +170,7 @@ RouteTable:
 ```
 
 ### Create another Route Table that is related to IGW
-```
+```yml
  RouteToIGW:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
     Type: AWS::EC2::Route
@@ -185,7 +185,7 @@ RouteTable:
  Also created different Subnets (Public & Private) and have given referrence to those subnets and associated with Route tables.
  
  **Public Subnet 1**
- ```
+ ```yml
  SubnetPub1:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
     Type: AWS::EC2::Subnet
@@ -201,7 +201,7 @@ RouteTable:
  ```
  
  **Private Subnet 1**
- ```
+ ```yml
   SubnetPriv1:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
     Type: AWS::EC2::Subnet
@@ -217,7 +217,7 @@ RouteTable:
  ```
  
  **Associated Subnet 1 with Route table**
- ```
+ ```yml
  SubnetPub1RTAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
