@@ -117,6 +117,9 @@ Then we created s3 bucket `cfn-lint-20` and deployed that template into s3 bucke
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/ff4821e2-aeab-4b16-9731-59db2e1d9718)
 
+## Networking Layer
+We created a networking layer where we require VPC, IGW, Routing tables, Subnetes (3) for flexibility to have in 3 different Availablity Zones.
+In VPC section,we have CIDR property- where we have given a CIDR IP address as `10.0.0.0/16`. SO in here, `/16` is the size of the IP addresses available in that particular CIDR block. You can search it on ![CIDR.xyz](CIDR.xyz) site - how many IPs are available in one particular IP size?
 
 
 
