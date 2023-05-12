@@ -181,8 +181,51 @@ RouteTable:
       DestinationCidrBlock: 0.0.0.0/0
  ``` 
  
-      
-
+ ### Create Subnets
+ Also created different Subnets (Public & Private) and have given referrence to those subnets and associated with Route tables.
+ 
+ **Public Subnet 1**
+ ```
+ SubnetPub1:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: !Ref Az1
+      CidrBlock: !Select [0, !Ref SubnetCidrBlocks]
+      EnableDns64: false
+      MapPublicIpOnLaunch: true #public subnet
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: !Sub "${AWS::StackName}SubnetPub1"
+ ```
+ 
+ **Private Subnet 1**
+ ```
+  SubnetPriv1:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: !Ref Az1
+      CidrBlock: !Select [3, !Ref SubnetCidrBlocks]
+      EnableDns64: false
+      MapPublicIpOnLaunch: false #public subnet
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: !Sub "${AWS::StackName}SubnetPriv1"
+ ```
+ 
+ **Associated Subnet 1 with Route table**
+ ```
+ SubnetPub1RTAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref SubnetPub1
+      RouteTableId: !Ref RouteTable
+ ```
+ 
+ **NOTE: Created 3 subnets by following the similar code pattern with different IPs**
 
 
 
