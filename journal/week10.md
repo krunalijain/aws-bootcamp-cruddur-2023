@@ -167,8 +167,21 @@ RouteTable:
       Tags:
         - Key: Name
           Value: !Sub "${AWS::StackName}RT"
-          
 ```
+
+### Create another Route Table that is related to IGW
+```
+ RouteToIGW:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
+    Type: AWS::EC2::Route
+    DependsOn: AttachIGW
+    Properties:
+      RouteTableId: !Ref RouteTable
+      GatewayId: !Ref IGW
+      DestinationCidrBlock: 0.0.0.0/0
+ ```
+ 
+      
 
 
 
