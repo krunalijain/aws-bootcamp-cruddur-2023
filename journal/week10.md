@@ -230,6 +230,11 @@ RouteTable:
 ### CFN Parameters
 CFN will now allow you to hardcode the values in it's `template.yaml` file. So always make sure to set parameters. You can refer the [AWS Documentation of CFN Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) to understand clearly and know what syntax is being followed.
 
+After creating the subnets, VPCs, Route Tables we deployed Networking Layer and it uploaded in our CloudFormation Stack.
+**Resources after deploying Networking Layer**
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/45794e5b-c09d-4bf2-bf74-e448972368c0)
+
 
 
 
