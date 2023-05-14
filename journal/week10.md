@@ -238,6 +238,9 @@ After creating the subnets, VPCs, Route Tables we deployed Networking Layer and 
 ### Modified Network Layer
 We changed the name given to this CFN Networking Stack to `CrdNet` and re-deployed. The updated `template.yaml` is [here](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/networking/template.yaml) with description added and subnets attached.
 
+## Cluster Layer
+This will help in supoorting the fargate containers. We have added ALB which supports IPv4 only, IPv6 is being disabled. ALB security Gorups are being created. Then, there is HTTP Listeners, Backend & Frontend Target Groups. Refer this cluster [`template.yaml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cluster/template.yaml) 
+
 
 
 
