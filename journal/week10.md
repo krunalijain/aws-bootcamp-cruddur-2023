@@ -235,6 +235,9 @@ After creating the subnets, VPCs, Route Tables we deployed Networking Layer and 
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/45794e5b-c09d-4bf2-bf74-e448972368c0)
 
+### Modified Network Layer
+We changed the name given to this CFN Networking Stack to `CrdNet` and re-deployed. The updated `template.yaml` is [here](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/networking/template.yaml) with description added and subnets attached.
+
 
 
 
