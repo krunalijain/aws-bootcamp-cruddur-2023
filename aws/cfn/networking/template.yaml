@@ -12,7 +12,6 @@ Description: |
     - 3 Public Subnets numbered 1 to 3
     - 3 Private Subnets numbered 1 to 3
 
-
 Parameters:
   VpcCidrBlock:
     Type: String
@@ -197,9 +196,6 @@ Outputs:
       - - !Ref SubnetPub1
         - !Ref SubnetPub2
         - !Ref SubnetPub3
-        - !Ref SubnetPriv1
-        - !Ref SubnetPriv2
-        - !Ref SubnetPriv3
     Export:
       Name: !Sub "${AWS::StackName}PublicSubnetIds"
   PrivateSubnetIds:
