@@ -181,7 +181,7 @@ Outputs:
   VpcId:
     Value: !Ref VPC
     Export:
-      Name: !Sub "${AWS::StackName}SubnetCidrBlocks"
+      Name: !Sub "${AWS::StackName}VpcId"
   VpcCidrBlock:
     Value: !GetAtt VPC.CidrBlock
     Export:
