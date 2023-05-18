@@ -120,7 +120,7 @@ Resources:
       PropagateTags: SERVICE
       ServiceConnectConfiguration:
         Enabled: true
-        Namespace: "cruddur"
+        Namespace: "cruddur-cfn"
         # TODO - If you want to log
         # LogConfiguration
         Services:
