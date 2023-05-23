@@ -179,8 +179,8 @@ Resources:
           CidrIp: '0.0.0.0/0'
           Description: INTERNET HTTPS
         - IpProtocol: tcp
-          FromPort: 80
-          ToPort: 80
+          FromPort: !Ref BackendPort
+          ToPort: !Ref BackendPort
           CidrIp: '0.0.0.0/0'
           Description: INTERNET HTTP
            # We have to create this SG before the service so we can pass it to database SG
