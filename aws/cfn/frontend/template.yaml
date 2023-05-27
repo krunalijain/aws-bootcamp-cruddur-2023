@@ -74,8 +74,8 @@ Resources:
     Properties:
       DistributionConfig:
         Aliases:
-          - cruddur.com
-          - www.cruddur.com
+          - iamdevopsgeek.cloud
+          - www.iamdevopsgeek.cloud
         Comment: Frontend React Js for Cruddur
         Enabled: true
         HttpVersion: http2and3 
