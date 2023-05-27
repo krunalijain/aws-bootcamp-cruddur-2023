@@ -239,7 +239,60 @@ After creating the subnets, VPCs, Route Tables we deployed Networking Layer and 
 We changed the name given to this CFN Networking Stack to `CrdNet` and re-deployed. The updated `template.yaml` is [here](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/networking/template.yaml) with description added and subnets attached.
 
 ## Cluster Layer
-This will help in supoorting the fargate containers. We have added ALB which supports IPv4 only, IPv6 is being disabled. ALB security Gorups are being created. Then, there is HTTP Listeners, Backend & Frontend Target Groups. Refer this cluster [`template.yaml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cluster/template.yaml) 
+This will help in suporting the fargate containers. We have added ALB which supports IPv4 only, IPv6 is being disabled. ALB security Gorups are being created. Then, there is HTTP Listeners, Backend & Frontend Target Groups. Refer this cluster [`template.yaml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cluster/template.yaml) 
+
+And a `cluster` file was been created to deploy CFN Stack.
+```
+#! /usr/bin/env bash
+set -e # stop the execution of the script if it fails
+
+CFN_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/cluster/template.yaml"
+CONFIG_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/cluster/config.toml"
+echo $CFN_PATH
+
+cfn-lint $CFN_PATH
+
+BUCKET=$(cfn-toml key deploy.bucket -t $CONFIG_PATH)
+REGION=$(cfn-toml key deploy.region -t $CONFIG_PATH)
+STACK_NAME=$(cfn-toml key deploy.stack_name -t $CONFIG_PATH)
+PARAMETERS=$(cfn-toml params v2 -t $CONFIG_PATH)
+
+
+aws cloudformation deploy \
+  --stack-name $STACK_NAME \
+  --s3-bucket $BUCKET \
+  --s3-prefix cluster \
+  --region $REGION \
+  --template-file "$CFN_PATH" \
+  --no-execute-changeset \
+  --tags group=cruddur-cluster \
+  --parameter-overrides $PARAMETERS \
+  --capabilities CAPABILITY_NAMED_IAM
+```
+
+### Install TOML
+```
+gem install cfn-toml
+```
+
+TOML is a **Tom's Obvious, Minimal Language**. It's a configuration file which is easy to read and write, the format consists of Key-Value pair. So we have used this TOML config file (`config.toml`) for creation of CloudFormation Templates. 
+
+**Points to remember**
+- Passed a **Certificate ARN** in the `config.toml` file, which will be attached to ALB -> HTTPS 443 Listener. 
+- In ALB , we need to pass SecurityGroup ID and not SecurityGroup Name.
+- One ALB cannot be attached to multpiple subnets in same AZ.
+
+### Cluster Resources 
+- Application Load Balanacer (ALB) 
+- IPV4 only 
+- Internet facing  
+- Certificate attached from Amazon Certification Manager (ACM) 
+- ALB Security Group - HTTPS Listerner 
+- Send naked domain to frontend Target Group  
+- Send api. subdomain to backend Target Group 
+- HTTP Listerner (redirects to HTTPS Listerner)  
+- Backend Target Group 
+- Frontend Target Group
 
 
 
