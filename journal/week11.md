@@ -34,7 +34,9 @@ Here's the `template.yaml` [code](https://github.com/krunalijain/aws-bootcamp-cr
 
 ## Service Stack (Backend)
 Created a `config.toml`, `template.yaml` and `service` bash script for stack deploying in CFN. It consists of:   
+
 **Task Definition**
+
 Environment Variables Used :
 - OTEL_SERVICE_NAME
 - OTEL_EXPORTER_OTLP_ENDPOINT
