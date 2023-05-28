@@ -294,6 +294,14 @@ TOML is a **Tom's Obvious, Minimal Language**. It's a configuration file which i
 - Backend Target Group 
 - Frontend Target Group
 
+## Archietecural Diagram 
+Here's my diagram tat depicts the work flow of Networking and Cluster stack in AWS CFN.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/97bdd6e8-e829-4238-933b-ce8dba120acd)
+
+The documentation of further stacks are been covered in week 11 journal.
+
+
 
 
 
