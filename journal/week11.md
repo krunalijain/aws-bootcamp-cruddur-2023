@@ -35,7 +35,7 @@ Here's the `template.yaml` [code](https://github.com/krunalijain/aws-bootcamp-cr
 ## Service Stack (Backend)
 Created a `config.toml`, `template.yaml` and `service` bash script for stack deploying in CFN. It consists of:   
 **Task Definition**
- Environment Variables Used :
+Environment Variables Used :
 - OTEL_SERVICE_NAME
 - OTEL_EXPORTER_OTLP_ENDPOINT
 - AWS_COGNITO_USER_POOL_ID
@@ -43,12 +43,14 @@ Created a `config.toml`, `template.yaml` and `service` bash script for stack dep
 - FRONTEND_URL
 - BACKEND_URL
 - AWS_DEFAULT_REGION
+
  Secrets :
 - AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
 - CONNECTION_URL
 - ROLLBAR_ACCESS_TOKEN
 - OTEL_EXPORTER_OTLP_HEADERS
+
 **Fargate Service**
 -  HealthCheckGracePeriodSeconds: 0
 -  ALB & Target Group 
