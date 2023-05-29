@@ -71,6 +71,15 @@ Environment Variables Used :
 **Outputs**
 - Service Name
 
+### Service Stack Troubleshooting
+When I tried to deploy and execute change set of my Service Stack, I got an error **CCreate Service Error: SC service is already used by service discovery namespace**. 
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/db316198-cdba-449a-b4e3-b9fcdaa61789)
+
+### Solution 
+To solve this I had to change the namespaces and match them in other stack files also.
+
+
 
 
 
