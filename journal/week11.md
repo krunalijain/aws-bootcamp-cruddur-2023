@@ -33,7 +33,7 @@ Here's the `template.yaml` [code](https://github.com/krunalijain/aws-bootcamp-cr
 - Also set DB_PASSWORD as a gitpod env var before running the script.
 
 ## Service Stack (Backend)
-Created a `config.toml`, `template.yaml` and `service` bash script for stack deploying in CFN. It consists of:   
+Created a [`config.toml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/service/config.toml), [`template.yaml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/service/template.yaml) and [`service`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/bin/cfn/service) bash script for stack deploying in CFN. It consists of:   
 
 **Task Definition**
 
