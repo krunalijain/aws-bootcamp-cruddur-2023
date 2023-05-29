@@ -179,7 +179,7 @@ rm -rf ./sam-installation/
 
 Created three different bash scripts for [`ddb/build`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/build), [`ddb/package`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/package) and [`ddb/deploy`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/deploy)
 
-And a [`ddb/template.yaml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/template.yaml) and [`/function/lambda_function.py`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/function/lambda_function.py)
+This is the [`ddb/template.yaml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/template.yaml) and [`/function/lambda_function.py`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/function/lambda_function.py) for DDB CFN Stack.
 
 ____________________________________________________________________________________________________________________________________________________________________
 
