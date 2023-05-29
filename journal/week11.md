@@ -161,7 +161,29 @@ Add this updated code:
 
 ____________________________________________________________________________________________________________________________________________________________________
 
-## DynamoDB Stack
+## SAM CFN for DynamoDB Stack & Lambda
+
+SAM (Serverless Application Model) is a subset of CloudFormation. It just macros that allows you to implement stuff easily in CFN
+Refer this link to know more about [AWS SAM DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/kinesis-tutorial-spec.html) 
+
+### Install SAM
+```
+ wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+      unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
+      sudo ./sam-installation/install
+```
+This will install all the SAM packages and I ran below command to remove them from commiting to my GitHub Repo.
+```
+rm -rf ./sam-installation/
+```
+
+Created three different bash scripts for [`ddb/build`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/build), [`ddb/package`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/package) and [`ddb/deploy`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/deploy)
+
+And a [`ddb/template.yaml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/template.yaml) and [`/function/lambda_function.py`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/ddb/function/lambda_function.py)
+
+____________________________________________________________________________________________________________________________________________________________________
+
+## CI/CD Stack
 
 
 
