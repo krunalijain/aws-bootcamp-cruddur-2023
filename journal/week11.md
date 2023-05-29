@@ -71,8 +71,9 @@ Environment Variables Used :
 **Outputs**
 - Service Name
 
-### Service Stack Troubleshooting
-When I tried to deploy and execute change set of my Service Stack, I got an error **CCreate Service Error: SC service is already used by service discovery namespace**. 
+## Service Stack Troubleshooting 
+### #1 SC service is already used
+When I tried to deploy and execute change set of my Service Stack, I got an error *Create Service Error: SC service is already used by service discovery namespace*. 
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/db316198-cdba-449a-b4e3-b9fcdaa61789)
 
@@ -94,7 +95,7 @@ ServiceConnectConfiguration:
 ```
 And then I successfully deployed service stack.
 
-### Error lines in `template.yaml` files 
+### #2 Error lines in `template.yaml` files 
 After completing these stacks, I was facing some errors in `template.yaml` files of every stack but, they weren't affecting my CFN deploy. 
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/7defe280-71f7-4ca0-b494-b1422e8c1192)
@@ -133,9 +134,34 @@ Add this updated code:
 }
 ```
 
+### #3 Health-Checks were Failing 
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/e88464cd-6afa-4395-b88e-a957b39ec384)
+
+### Solution
+1. Set the `CrdClusterSrvSG` port to `4567` , Which is connected to ECS Backend service
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/8a4532f8-764f-4b3a-8d89-c68acc83e4b5)
+
+2. Security gorup `CrdClusterALBSg` ports -> HTTP(80) and HTTPS(443) from anywhere source.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/a5e8f892-3cea-491f-bf08-b04fa0fb1afd)
+
+3. Target Group -> Backend service's Health-check port to `4567`
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/8b1abfd4-f727-451c-9556-f19250c228ee)
+
+**Finally got health-check status as successful**
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/436f579a-1995-4fbc-923d-bf7d3dba115a)
+
+### URL health-check status via CFN
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/faad276b-3b5f-43ac-be15-0480a8c33c58)
+
 ____________________________________________________________________________________________________________________________________________________________________
 
-
+## DynamoDB Stack
 
 
 
