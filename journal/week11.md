@@ -184,6 +184,31 @@ This is the [`ddb/template.yaml`](https://github.com/krunalijain/aws-bootcamp-cr
 ____________________________________________________________________________________________________________________________________________________________________
 
 ## CI/CD Stack
+Similar to the previous stacks, I created three files for CI/CD CFN: `config.toml`, `template.yaml` & `cicd` (deploy script). But, here I have also created a nested folder that contains `codebuild.yaml` script. Also created S3 bucket manually to store the artifacts. Created an empty folder in my root directory `tmp` which will be used when we cpmpile a package template and all that stuff will be stored in this `tmp` folder. So basically, I have wildacarded the `tmp` folder in my `.gitignore` 
+
+____________________________________________________________________________________________________________________________________________________________________
+
+## Frontend Stack (Static Web Hosting)
+For this I did similar way - 3 files - `config.toml`, `template.yaml` & `frontend` (for deploying). 
+Also added Certitficate ARN.
+
+### Error Faced - CNMAE Not Attached
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/96838160-ab62-4821-b140-370f0c01301f)
+
+### Solution
+I misconfigured the file, in place of aliases I hadn't given my domain name. So that was the issue. Also delted the extra record type for domain (A). 
+
+____________________________________________________________________________________________________________________________________________________________________
+
+## All Stacks Deployed in CloudFormation
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/a16e4661-59f5-4028-94ce-16578c379831)
+
+One more thing to remember: If you try deleting these stacks.. so here there is a nested stack which is been attched with the CICD stack. So to delete that you will first have to delete the CICD stack and then only you can delete the Nested stack.
+
+
+
 
 
 
