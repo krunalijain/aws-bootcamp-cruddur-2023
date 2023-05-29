@@ -78,6 +78,69 @@ When I tried to deploy and execute change set of my Service Stack, I got an erro
 
 ### Solution 
 To solve this I had to change the namespaces and match them in other stack files also.
+`cluster/template.yaml`
+
+```
+ServiceConnectDefaults:
+        Namespace: cruddurCFN
+```
+
+`service/template.yaml`
+
+```
+ServiceConnectConfiguration:
+        Enabled: true
+        Namespace: cruddurCFN
+```
+And then I successfully deployed service stack.
+
+### Error lines in `template.yaml` files 
+After completing these stacks, I was facing some errors in `template.yaml` files of every stack but, they weren't affecting my CFN deploy. 
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/7defe280-71f7-4ca0-b494-b1422e8c1192)
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/d4d58921-b0dd-45fd-885e-cacfe92419d0)
+
+To fix these error lines in template files I edited my `.vscode` -> `settings.json` file.
+Then my code was error free and clean. **How you can find that `settings.json` file?** 
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/0a1b8902-2016-4472-b075-98d868b032d0)
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/b22173f5-c63d-450b-aedf-8830d0e8f330)
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/76bdab42-b999-484e-84bc-9a2595b901b8)
+
+Add this updated code:
+
+```
+{
+  "yaml.customTags": [
+    "!Equals sequence",
+    "!FindInMap sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!Join sequence",
+    "!Ref",
+    "!Select sequence",
+    "!Split sequence",
+    "!Sub"
+  ],
+  "yaml.schemas": {
+    
+    "/workspace/aws-bootcamp-cruddur-2023/aws/cfn/service/template.yaml": "template.yaml"
+  }
+}
+```
+
+____________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
 
 
 
