@@ -208,7 +208,7 @@ ________________________________________________________________________________
 One more thing to remember: If you try deleting these stacks.. so here there is a nested stack which is been attched with the CICD stack. So to delete that you will first have to delete the CICD stack and then only you can delete the Nested stack.
 
 ## CFN Architecture
-As I didn't have enough access to create my diagram on Lucid Charts, so I have created it on draw.io site. As there were limited features so I had to add images of few AWS Shapes but, I hope it depicts it's working correcting. Refer [this link](https://drive.google.com/file/d/1fhV6lNBbyj_nat0AHYB_CnF3olObhmeA/view?usp=sharing) to view my diagram **OR** you can also check it in my GitHub's repo in [Journal folder](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/CFN%20Architecture%20-Page-1.jpg) 
+As I didn't have enough access to create my diagram on Lucid Charts, so I have created it on [draw.io](https://app.diagrams.net/) site. As there were limited features so I had to add images of few AWS Shapes but, I hope it depicts it's working correcting. Refer [this link](https://drive.google.com/file/d/1fhV6lNBbyj_nat0AHYB_CnF3olObhmeA/view?usp=sharing) to view my diagram **OR** you can also check it in my GitHub's repo in [Journal folder](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/CFN%20Architecture%20-Page-1.jpg) 
 
 
 
