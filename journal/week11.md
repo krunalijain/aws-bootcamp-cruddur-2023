@@ -207,6 +207,10 @@ ________________________________________________________________________________
 
 One more thing to remember: If you try deleting these stacks.. so here there is a nested stack which is been attched with the CICD stack. So to delete that you will first have to delete the CICD stack and then only you can delete the Nested stack.
 
+## CFN Architecture
+
+![](https://drive.google.com/file/d/1fhV6lNBbyj_nat0AHYB_CnF3olObhmeA/view?usp=sharing)
+
 
 
 
