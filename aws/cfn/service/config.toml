@@ -2,3 +2,7 @@
 bucket = 'cfn-artifacts-20'
 region = 'us-east-1'
 stack_name = 'CrdSrvBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'iamdevopsgeek.cloud'
+EnvBackendUrl = 'api.iamdevopsgeek.cloud'
