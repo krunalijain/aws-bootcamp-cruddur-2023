@@ -48,10 +48,10 @@ Parameters:
     Default: 60gr0hf1bokknnmkrfkda1i72h
   EnvFrontendUrl:
     Type: String
-    Default: "*"
+    Default: "https://iamdevopsgeek.cloud"
   EnvBackendUrl:
     Type: String
-    Default: "*"
+    Default: "https://api.iamdevopsgeek.cloud"
   SecretsAWSAccessKeyId:
     Type: String
     Default: 'arn:aws:ssm:us-east-1:244933296429:parameter/cruddur/backend-flask/AWS_ACCESS_KEY_ID'
