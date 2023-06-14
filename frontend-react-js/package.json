@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "aws-amplify": "^5.0.16",
+    "install": "^0.13.0",
     "js-cookie": "^3.0.1",
     "luxon": "^3.1.0",
     "process": "^0.11.10",

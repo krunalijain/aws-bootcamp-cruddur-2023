@@ -1,0 +1,8 @@
+[deploy]
+bucket = 'cfn-artifacts-20'
+region = 'us-east-1'
+stack_name = 'CrdSrvBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'https://iamdevopsgeek.cloud'
+EnvBackendUrl = 'https://api.iamdevopsgeek.cloud'
