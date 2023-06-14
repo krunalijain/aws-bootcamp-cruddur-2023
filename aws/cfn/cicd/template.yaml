@@ -160,6 +160,9 @@ Resources:
                 - codebuild:StartBuild
                 - codebuild:StopBuild
                 - codebuild:RetryBuild
+                # even though we are not Batch for CodeBuild
+                # AWS Still requires permissions
+                - codebuild:BatchGetBuilds
                 Effect: Allow
                 Resource: !Join
                   - ''
