@@ -5,7 +5,7 @@ class ReplyToActivityToUuidToStringMigration:
     def migrate(self):
         query = """
         ALTER TABLE activities
-        ALTER COLUMN reply_to_activity_uuid TYPE varchar(36) USING CAST(reply_to_activity_uuid AS varchar(36));
+        ALTER COLUMN reply_to_activity_uuid TYPE uuid USING reply_to_activity_uuid::uuid;
         """
         db.query_commit(query, {})
 
