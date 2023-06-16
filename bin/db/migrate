@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
-
 import os
 import sys
 import glob
 import re
 import time
 import importlib
-
 current_path = os.path.dirname(os.path.abspath(__file__))
 parent_path = os.path.abspath(os.path.join(current_path, '..', '..','backend-flask'))
 sys.path.append(parent_path)
 from lib.db import db
-
 def get_last_successful_run():
   sql = """
     SELECT last_successful_run
@@ -19,7 +16,6 @@ def get_last_successful_run():
     LIMIT 1
   """
   return int(db.query_value(sql,{},verbose=False))
-
 def set_last_successful_run(value):
   sql = """
   UPDATE schema_information
@@ -34,8 +30,6 @@ last_successful_run = get_last_successful_run()
 migrations_path = os.path.abspath(os.path.join(current_path, '..', '..','backend-flask','db','migrations'))
 sys.path.append(migrations_path)
 migration_files = glob.glob(f"{migrations_path}/*")
-
-
 for migration_file in migration_files:
   filename = os.path.basename(migration_file)
   module_name = os.path.splitext(filename)[0]
