@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 export default function ActivityActionReply(props) { 
   const onclick = (event) => {
+    console.log('acitivty-action-reply',props.activity)
     props.setReplyActivity(props.activity)
     props.setPopped(true)
   }
