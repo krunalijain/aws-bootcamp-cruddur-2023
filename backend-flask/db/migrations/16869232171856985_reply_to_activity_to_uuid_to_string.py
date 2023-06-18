@@ -4,15 +4,15 @@ import uuid
 class ReplyToActivityToUuidToStringMigration:
     def migrate(self):
         query = """
-        ALTER TABLE activities
-        ALTER COLUMN reply_to_activity_uuid TYPE uuid USING reply_to_activity_uuid::uuid;
+        ALTER TABLE activities DROP COLUMN reply_to_activity_uuid;
+        ALTER TABLE activities ADD COLUMN reply_to_activity_uuid uuid;
         """
         db.query_commit(query, {})
 
     def rollback(self):
         query = """
-        ALTER TABLE activities
-        ALTER COLUMN reply_to_activity_uuid TYPE integer USING CAST(reply_to_activity_uuid AS integer);
+        ALTER TABLE activities DROP COLUMN reply_to_activity_uuid;
+        ALTER TABLE activities ADD COLUMN reply_to_activity_uuid integer;
         """
         db.query_commit(query, {})
 
