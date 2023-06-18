@@ -71,3 +71,4 @@ export default function ProfileForm(props) {
       console.log(err);
     }
   }
+}
