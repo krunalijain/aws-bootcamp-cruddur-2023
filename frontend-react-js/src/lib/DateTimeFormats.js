@@ -33,7 +33,7 @@ export function time_ago(value){
   const diff_mins = now.diff(future, 'minutes').toObject().minutes;
   const diff_hours = now.diff(future, 'hours').toObject().hours;
   const diff_days = now.diff(future, 'days').toObject().days;
-  
+
   if (diff_hours > 24.0){
     return `${Math.floor(diff_days)}d`;
   } else if (diff_hours < 24.0 && diff_hours > 1.0) {
