@@ -6,3 +6,4 @@ stack_name = 'CrdSrvBackendFlask'
 [parameters]
 EnvFrontendUrl = 'https://iamdevopsgeek.cloud'
 EnvBackendUrl = 'https://api.iamdevopsgeek.cloud'
+DDBMessageTable = ''
