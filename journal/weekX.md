@@ -184,6 +184,24 @@ And then wait for CloudFront -> Frontend Distribution's -> Invalidations to get 
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/017c413c-f6e9-41d8-a4a2-02f2624e9e4b)
 
+### Messages Fixed on Local Environment
+I was facing issue on my Local Environment- Messaging was not working.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/0d6f2f73-b29b-4155-8556-bb0f5da34c3c)
+
+**Resolved this by** removing `AWS_ENDPOINT_URL` from `backend-flask.env` file.
+
+Then I was able to see data in DynamoDB Table.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/3fe73750-91c0-4b4e-ac9a-c0f03505162c)
+
+### Note
+But due to some network issues on my end, everytime while working on Prod-Env I have to keep switching my internet connection from WiFi -> Mobile Hotspot and then only I am able to see any Cruds or Post Cruds. And it works only for 1 second ad then again I am supposed to switch my network for working of the application. 
+
+
+
+
+
 
 
 
