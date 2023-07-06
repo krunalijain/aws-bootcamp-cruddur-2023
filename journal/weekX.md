@@ -78,6 +78,57 @@ Then you should be able to log in prod url and if face any issues then - check c
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/3922aa45-e778-4a2e-bbff-5856ad9d86cc)
 
+### Cruds Not visible - Fixed
+On prod url I was not able to view cruds on my cruddur application's home page. To fix that I edited `aws/cfn/service/template.yaml` 
+```
+EnvFrontendUrl:
+    Type: String
+    Default: "https://iamdevopsgeek.cloud"
+  EnvBackendUrl:
+    Type: String
+    Default: "https://api.iamdevopsgeek.cloud"
+```
+So, instead of `Default: "*"` -> change i tot -> `Default: "https://api.iamdevopsgeek.cloud"` . And that fixed my issue of cruds not visible. I had also added [`bin/backend/connect-service`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/b4733c6716d711c673757605d830cda556e9f39e/bin/backend/connect-service) file.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/8b85d78b-00bf-446f-893a-635492186fa8)
+
+### Error 401 (unable to post crud) Fixed
+So, I was not able to post crud on my Prod URL application, was getting 401 error. 
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/b2039fe0-18d8-4ef4-bd10-8f4c01f84c3e)
+
+**To solve this -**
+I had to add the authorization in [`frontend-react-js/src/components/ActivityForm.js`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/2e84e27eb530f74be1ac9ba86ddae90d986f70db/frontend-react-js/src/components/ActivityForm.js) file and then access_token was passing and I was able to post a crud from Prod URL.
+```
+import { checkAuth, getAccessToken } from '../lib/CheckAuth';
+```
+
+```
+ const onsubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await getAccessToken()
+      const access_token = localStorage.getItem("access_token")
+      console.log('activityform', access_token)
+      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities`
+      console.log('onsubmit payload', message)
+      const res = await fetch(backend_url, {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${access_token}`,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+```
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/9f872820-71fa-4de8-bd16-37f89f7ad969)
+
+
+
+
+
+
+
+
 
 
 
