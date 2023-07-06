@@ -128,13 +128,64 @@ Edited `ReplyFrom.js` -> `app.py` & `cognito-jwt-token.py` and was able to close
 *Reference:* [How BuildSpec works](https://docs.aws.amazon.com/codebuild/latest/userguide/concepts.html#concepts-how-it-works) & [Build specification reference for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage) .
 
 ### Implemented Replies working & Error handling features
-Reply Feature Working 
+**Reply Feature Working** 
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/993bd366-22ef-4a66-81d3-642bdf183267)
 
-Error Handling Feature
+**Error Handling Feature**
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/5ab97d46-7333-4fde-8dcb-8420cba9b210)
+
+**Cruds working from Alt account**
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/af5acc15-5263-4843-8a7d-c65b9d9264b3)
+
+Then we fixed **Date & Timezone**, **added back button & some more UI changes** and **fixed migrations** as well for Prod Environment.
+
+### Cleanup Part
+Created a **machine user** for dynamoDB access. Though we have admin access but, it was not accepting. Possibilities are that the same credentials might have gone out of date and were not useful?! Maybe, because of this reason there was a need to create this Machine user and update the `access_key` & `secrete_access_key` in parameter store. As we are using DynamoDB in backend and to get required permissions for dynamodb, this machineuser was been created.
+
+**DynamoDBFullAccessPolicy**
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "dynamodb:PutItem",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:BatchWriteItem"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}
+```
+
+After all the changes I did a New Pull request and waited until I get a successful built CI/CD piepline.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/b007ed3c-2bd9-448a-92d0-4c82877208fc)
+
+And then before syncing my Local env to Prod env, I edited and fixed some code (can refer my git repo's commit) and ran 
+```
+./bin/frontned/static-build
+```
+
+and then fixed sync's path in `erb/sync.env.erb` file. You need to add `/changeset.json` at the end of `SYNC_OUTPUT_CHANGESET_PATH=<%=  ENV['THEIA_WORKSPACE_ROOT'] %>/tmp`, then ran
+```
+./bin/frontend/sync
+```
+And then wait for CloudFront -> Frontend Distribution's -> Invalidations to get in success state.
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/017c413c-f6e9-41d8-a4a2-02f2624e9e4b)
+
+
+
 
 
 
