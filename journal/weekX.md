@@ -122,6 +122,25 @@ import { checkAuth, getAccessToken } from '../lib/CheckAuth';
 
 ![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/9f872820-71fa-4de8-bd16-37f89f7ad969)
 
+### Refactored JWT decorator & flask routes, fixed CI/CD configuration
+Edited `ReplyFrom.js` -> `app.py` & `cognito-jwt-token.py` and was able to close reply window after clicking outside of the window - fixed this feature. Fixed CI/CD `buildspec.yaml` path in `config.toml` file. 
+**NOTE:** As we need to specify the `buildspec.yaml` file's path while configuring, if it is in another directory. You can only NOT spwcify it when it's in the same directory.
+*Reference:* [How BuildSpec works](https://docs.aws.amazon.com/codebuild/latest/userguide/concepts.html#concepts-how-it-works) & [Build specification reference for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage) .
+
+### Implemented Replies working & Error handling features
+Reply Feature Working 
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/993bd366-22ef-4a66-81d3-642bdf183267)
+
+Error Handling Feature
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/5ab97d46-7333-4fde-8dcb-8420cba9b210)
+
+
+
+
+
+
 
 
 
