@@ -57,7 +57,7 @@ Attached Inline Policy to `CrdSyncRole`
 }
 ```
 
-### Recoonect DB & Post Confirmation Lambda
+### Reconnect DB & Post Confirmation Lambda
 Ran `build`, `push` & `register` script for backend and did Force Deployment. If it doesn't works then try re-deploying the Service Stack in CFN. 
 Then changed RDS Endpoint URL in gitpod envs & parameter store for backend CONNECTION_URL. Edited Security Group of RDS -> added another Inbound Rule
 `Type= Postgres; Source= MyIP`. 
@@ -69,6 +69,15 @@ Then you will be able to connect to Prod Databse
 ```
 ./bin/db/connect prod
 ```
+Then ran migration file for pro environment by this command 
+```
+CONNECTION_URL=$PROD_CONNECTION_URL ./bin/db/migrate
+```
+Edit the `cruddur-post-confirmation` lambda function's env vars -> `CONNECTION_URL` (RDS updated endpoint URL)
+Then you should be able to log in prod url and if face any issues then - check cognito user's ID whether matches in code or can try dleeting the cognito user & creating a new cognito user (signup).
+
+![](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/assets/115455157/3922aa45-e778-4a2e-bbff-5856ad9d86cc)
+
 
 
 
