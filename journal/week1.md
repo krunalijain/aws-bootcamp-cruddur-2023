@@ -1,5 +1,10 @@
 # Week 1 — App Containerization
 
+## Table of Contents
+- [Homework Required](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#homework-required)
+- [Launched Gitpod and Implemented Notifications](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#1-launched-gitpod-and-implemented-notifications)
+- [Troubleshooted Error : 404 Not Found [Unhandled Thrown Error]](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#troubleshooted-error--404-not-found-unhandled-thrown-error)
+- [Installed DynamoDB on Gitpod](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#2-installed-dynamodb-on-gitpod)
 ## Homework Required
 ## Attended Live Session 
 This live session was a leveled up compared to Week-0. Here we got to know about the working of **Guest OS, Host OS and the Containers**. We also **created a Docker file** in this instructional live video. Also ran some of the **Python scripts**. Experienced the guidance from the Docker experts : ***James Spurin*** and ***Edith Puclla***. Installed the Docker Extension in Gtipod. And understood the working of code in Dockerfile. 
