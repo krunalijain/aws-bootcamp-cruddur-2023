@@ -1,5 +1,21 @@
 # Week 0 — Billing and Architecture
 
+## Table of Contents
+- [Synopsis](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis)
+- [Pre-Requisites](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#pre-requisites)
+- [Week-0 Live Session](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#week-0-live-session)
+- [Tasks Completed in Week-0](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#tasks-completed-in-week-0)
+- [Created IAM User, Role and MFA](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=1.%20Created%20IAM%20User%2C%20Role%20and%20MFA)
+- [Creating IAM Role](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=MFA%20is%20set.-,Creating%20IAM%20Role,-From%20IAM%20click)
+- [Error Faced after creating IAM user, role and it's Solution](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=Error%20Faced%20after%20creating%20IAM%20user%2C%20role)
+- [Installeed AWS CLI in Gtpod](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=2.Installeed%20AWS%20CLI%20in%20Gtpod.)
+- [Problem faced while this AWS CLI Setup & it's Solution](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=Problem%20faced%20while%20this%20AWS%20CLI%20Setup%20%3F)
+- [Set Billing alarm and Budget via CLI](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=3.%20Set%20Billing%20alarm%20and%20Budget%20via%20CLI)
+- [Re-created Cruddur Logical Diagram](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=4.%20Re%2Dcreated%20Cruddur%20Logical%20Diagram.)
+- [Created a Napkin Design](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=5.%20Created%20a%20Napkin%20Design)
+- [Chirag's Pricing Video](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=Chirag%27s%20Pricing%20Video)
+- [Ashish's Security Video](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=Ashish%27s%20Security%20Video)
+
 ## Synopsis 
 This journal consists of the tasks completed in week-0 of AWS Free Bootcamp 2023 organized by Andrew Brown and his Team. In this week, we started with setting up the accounts (aws, gitpod, gihub) that are required before the start of ‘Cruddur Project’. 
 
