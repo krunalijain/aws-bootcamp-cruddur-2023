@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Creation of CFN template](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#creation-of--cfn-template)
 - [Install CFN Guard](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=you%20need%20to-,install%20cfn%2Dguard,-cargo%20install%20cfn)
-- [Created task-definition.guard](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=created%20task%2Ddefinition.guard)
+- [Created task-definition.guard](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#cluster-layer:~:text=Then%20we%20created%20task%2Ddefinition.guard%20in%20aws/cfn%20folder)
 - [Genrate rules/guard file](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=generate%20your%20rules%20or%20guard%20file)
 - [Install CFN Lint](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=cfn/template.yaml-,Install%20cfn%2Dlint.,-This%20basically%20works)
 - [Created s3 bucket & Deployed temaplte in that bucket](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=created%20s3%20bucket%20cfn%2Dlint%2D20)
