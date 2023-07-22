@@ -32,7 +32,7 @@ def load(app):
     data = UsersShort.run(handle)
     return data, 200
 
-  @app.route("/api/profile/update", methods=['POST','OPTIONS'])
+  @app.route("/api/profile/update", methods=['POST','PUT','OPTIONS'])
   @cross_origin()
   @jwt_required()
   def data_update_profile():
