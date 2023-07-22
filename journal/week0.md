@@ -14,7 +14,7 @@
 - [Re-created Cruddur Logical Diagram](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=4.%20Re%2Dcreated%20Cruddur%20Logical%20Diagram.)
 - [Created a Napkin Design](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=5.%20Created%20a%20Napkin%20Design)
 - [Chirag's Pricing Video](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=Chirag%27s%20Pricing%20Video)
-- [Ashish's Security Video](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=Ashish%27s%20Security%20Video)
+- [Ashish's Security Video](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week0.md#synopsis:~:text=Ashish%27s%20Security%20Video%20%3A)
 
 ## Synopsis 
 This journal consists of the tasks completed in week-0 of AWS Free Bootcamp 2023 organized by Andrew Brown and his Team. In this week, we started with setting up the accounts (aws, gitpod, gihub) that are required before the start of ‘Cruddur Project’. 
