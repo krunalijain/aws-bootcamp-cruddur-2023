@@ -18,6 +18,7 @@ def handler(event:, context:)
       headers: {
         "Access-Control-Allow-Headers": "*, Authorization",
         "Access-Control-Allow-Origin": "https://3000-krunalijain-awsbootcamp-fxkfrcnxqme.ws-us96b.gitpod.io",
+        "Access-Control-Allow-Origin": "https://iamdevopsgeek.cloud",
         # "Access-Control-Allow-Origin": workspace_url,
         "Access-Control-Allow-Methods": "OPTIONS,GET,POST"
       },
@@ -47,6 +48,7 @@ def handler(event:, context:)
       headers: {
         "Access-Control-Allow-Headers": "*, Authorization",
         "Access-Control-Allow-Origin": "https://3000-krunalijain-awsbootcamp-fxkfrcnxqme.ws-us96b.gitpod.io",
+        "Access-Control-Allow-Origin": "https://iamdevopsgeek.cloud",
         # "Access-Control-Allow-Origin": workspace_url,
         "Access-Control-Allow-Methods": "OPTIONS,GET,POST"
       },

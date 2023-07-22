@@ -1,5 +1,10 @@
 # Week 1 — App Containerization
 
+## Table of Contents
+- [Homework Required](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#homework-required)
+- [Launched Gitpod and Implemented Notifications](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#1-launched-gitpod-and-implemented-notifications)
+- [Troubleshooted Error : 404 Not Found [Unhandled Thrown Error]](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#troubleshooted-error--404-not-found-unhandled-thrown-error)
+- [Installed DynamoDB on Gitpod](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#2-installed-dynamodb-on-gitpod)
 ## Homework Required
 ## Attended Live Session 
 This live session was a leveled up compared to Week-0. Here we got to know about the working of **Guest OS, Host OS and the Containers**. We also **created a Docker file** in this instructional live video. Also ran some of the **Python scripts**. Experienced the guidance from the Docker experts : ***James Spurin*** and ***Edith Puclla***. Installed the Docker Extension in Gtipod. And understood the working of code in Dockerfile. 
@@ -17,7 +22,7 @@ There was a problem when I ran the port 3000 for the frontend thing and I could 
 ![](https://user-images.githubusercontent.com/115455157/221342650-fb88fdd6-fa2d-4138-b513-ee2df087fdaa.jpg)
 
 This error was a hectic task for me to solve as it consumed lot of time to solve and understand. Though it was a silly mistake that I did - there's a file under the `frontend-react-js` -> `app.js` in this file I had skipped one code block 
-```
+```js
   {
     path: "/",
     element: <HomeFeedPage />
@@ -39,13 +44,13 @@ This error was a hectic task for me to solve as it consumed lot of time to solve
  We also installed and ran Postgres on Gitpod. But I faced some issue while running he Postgres installing script.
  ### Troubleshooted Error : Invalid Compose Project
  So the error stated "Invalid Compose Project" and something like undefined vloume db has been used, after researching from the stackoverflow I found the soulution. The problem was in the code where we had to define volume before `networks` section and not in the end. Here's  the code from the `docker-compose.yml` file
- ```
+ ```yaml
  volumes:
   db:
     driver: local
 ```
  Then later on to work with Postgres you need to have a client library to interact with a server, for this we ran few lines of code :
- ```
+ ```yaml
    - name: postgres
     init: |
       curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
