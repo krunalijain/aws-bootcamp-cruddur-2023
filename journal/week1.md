@@ -5,6 +5,13 @@
 - [Launched Gitpod and Implemented Notifications](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#1-launched-gitpod-and-implemented-notifications)
 - [Troubleshooted Error : 404 Not Found [Unhandled Thrown Error]](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#troubleshooted-error--404-not-found-unhandled-thrown-error)
 - [Installed DynamoDB on Gitpod](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#2-installed-dynamodb-on-gitpod)
+- [Installed Postgres](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#3-installed-postgres)
+- [Troubleshooted Error : Invalid Compose Project](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#troubleshooted-error--invalid-compose-project)
+- [Troubleshooted Error : Gitpod error while commiting](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#troubleshooted-error--gitpod-error-while-commiting)
+- [Chriag's price consideration Video for this week1](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#4-watched-chriags-price-consideration-video-for-this-week1)
+- [Ashish's security consideration video](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#5-watched-ashishs-security-consideration-video)
+- [Homework Challenges - HealthCheck for Frontend, Pushed images to Docker Repositories and Launched Cruddur via EC2](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#homework-challenges)
+
 ## Homework Required
 ## Attended Live Session 
 This live session was a leveled up compared to Week-0. Here we got to know about the working of **Guest OS, Host OS and the Containers**. We also **created a Docker file** in this instructional live video. Also ran some of the **Python scripts**. Experienced the guidance from the Docker experts : ***James Spurin*** and ***Edith Puclla***. Installed the Docker Extension in Gtipod. And understood the working of code in Dockerfile. 
@@ -80,7 +87,7 @@ Also helped me to solve the Security Quiz.
 **Security Video Link :** https://www.youtube.com/watch?v=OjZz4D0B-cA&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=25
 
 ## Homework Challenges
-Did **Health-Check for frontend**, **pushed iamges to Docker Repositories** and **Launched Cruddur via EC2**.
+Did **Health-Check for frontend**, **Pushed images to Docker Repositories** and **Launched Cruddur via EC2**.
 
 Here is my article link for EC2 and Docker images (A complete step-by-step process) : https://krunali.hashnode.dev/launch-ec2-instance-with-docker-installed
 
