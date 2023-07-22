@@ -1,5 +1,22 @@
 # Week 11 — CloudFormation Part 2
 
+## Table of Contents
+- [RDS (postgres) Stack](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#rds-postgres-stack)
+- [Template File Key Points](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#template-file-key-points)
+- [Service Stack (Backend)](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#service-stack-backend)
+- [Service Stack Troubleshooting](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#service-stack-troubleshooting)
+- - [SC service is already used](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#1-sc-service-is-already-used)
+- - [Error lines in template.yaml files](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#2-error-lines-in-templateyaml-files)
+- - [Health-Checks were Failing](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#3-health-checks-were-failing)
+- [URL health-check status via CFN](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#url-health-check-status-via-cfn)
+- [SAM CFN for DynamoDB Stack & Lambda](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#sam-cfn-for-dynamodb-stack--lambda)
+- [Install SAM](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#install-sam)
+- [CI/CD Stack](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#cicd-stack)
+- [Frontend Stack (Static Web Hosting)](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#frontend-stack-static-web-hosting)
+- [Error Faced - CNMAE Not Attached](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#error-faced---cnmae-not-attached)
+- [All Stacks Deployed in CloudFormation](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#all-stacks-deployed-in-cloudformation)
+- [CFN Architecture](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week11.md#cfn-architecture)
+  
 After the completion of Networking & Cluster Stak I move forward with implementing of RDS(Postgres), Sevice, DynamoDB & CICD stacks in AWS CloudFormation.
 
 As created for previous stacks, similarly, here also I created a `template.yaml` & `config.toml` for RDS DataBase Configuration. And a `db` deploy script which will deploy the CFN Stack. 
@@ -7,7 +24,7 @@ As created for previous stacks, similarly, here also I created a `template.yaml`
 ## RDS (postgres) Stack
 
 `config.toml`
-```
+```bash
 [deploy]
 bucket = 'cfn-artifacts-20'
 region = 'us-east-1'
@@ -81,14 +98,14 @@ When I tried to deploy and execute change set of my Service Stack, I got an erro
 To solve this I had to change the namespaces and match them in other stack files also.
 `cluster/template.yaml`
 
-```
+```yaml
 ServiceConnectDefaults:
         Namespace: cruddurCFN
 ```
 
 `service/template.yaml`
 
-```
+```yaml
 ServiceConnectConfiguration:
         Enabled: true
         Namespace: cruddurCFN
@@ -113,7 +130,7 @@ Then my code was error free and clean. **How you can find that `settings.json` f
 
 Add this updated code:
 
-```
+```json
 {
   "yaml.customTags": [
     "!Equals sequence",
@@ -167,13 +184,13 @@ SAM (Serverless Application Model) is a subset of CloudFormation. It just macros
 Refer this link to know more about [AWS SAM DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/kinesis-tutorial-spec.html) 
 
 ### Install SAM
-```
+```bash
  wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
       unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
       sudo ./sam-installation/install
 ```
 This will install all the SAM packages and I ran below command to remove them from commiting to my GitHub Repo.
-```
+```bash
 rm -rf ./sam-installation/
 ```
 
