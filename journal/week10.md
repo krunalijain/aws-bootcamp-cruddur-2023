@@ -1,5 +1,26 @@
 # Week 10 — CloudFormation Part 1
 
+## Table of Contents
+- [Creation of CFN template](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#creation-of--cfn-template)
+- [Install CFN Guard](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=you%20need%20to-,install%20cfn%2Dguard,-cargo%20install%20cfn)
+- [Created task-definition.guard](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=created%20task%2Ddefinition.guard)
+- [Genrate rules/guard file](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=generate%20your%20rules%20or%20guard%20file)
+- [Install CFN Lint](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=cfn/template.yaml-,Install%20cfn%2Dlint.,-This%20basically%20works)
+- [Created s3 bucket & Deployed temaplte in that bucket](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#:~:text=created%20s3%20bucket%20cfn%2Dlint%2D20)
+- [Networking Layer](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#networking-layer)
+- [Create VPC](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#create-vpc)
+- [Create adn Attach IGW (Internet gateway)](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#create-adn-attach-igw-internet-gateway)
+- [Create Route Table](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#create-route-table)
+- [Create another Route Table that is related to IGW](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#create-another-route-table-that-is-related-to-igw)
+- [Create Subnets](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#create-subnets)
+- [CFN Parameters](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#cfn-parameters)
+- [Modified Network Layer](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#modified-network-layer)
+- [Cluster Layer](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#cluster-layer)
+- [Install TOML](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#install-toml)
+- [Points to remember](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#cluster-layer:~:text=of%20CloudFormation%20Templates.-,Points%20to%20remember,-Passed%20a%20Certificate)
+- [Cluster Resources](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#cluster-resources)
+- [Architectural Diagram](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week10.md#architectural-diagram)
+
 ## Creation of  CFN template
 In the `aws` folder we created a `cfn` folder and created a `template.yaml` file. Where it Sets up a ECS empty Cluster.
 ```yaml
@@ -51,7 +72,7 @@ There are some guard rules or taskdefinitions for ECS Cluster. This is called as
 
 **Before you create these rules/policies, you need to install `cfn-guard`**
 
-```
+```bash
 cargo install cfn-guard
 ```
 
@@ -109,7 +130,7 @@ To **generate your rules or guard file** you need to run this command with speci
 cfn-guard rulegen --template /workspace/aws-bootcamp-cruddur-2023/aws/cfn/template.yaml
 ```
 **Install `cfn-lint`.** This basically works as validation tool for Cloudformation templates.
-```
+```bash
 pip install cfn-lint
 ```
 
@@ -242,7 +263,7 @@ We changed the name given to this CFN Networking Stack to `CrdNet` and re-deploy
 This will help in suporting the fargate containers. We have added ALB which supports IPv4 only, IPv6 is being disabled. ALB security Gorups are being created. Then, there is HTTP Listeners, Backend & Frontend Target Groups. Refer this cluster [`template.yaml`](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cluster/template.yaml) 
 
 And a `cluster` file was been created to deploy CFN Stack.
-```
+```bash
 #! /usr/bin/env bash
 set -e # stop the execution of the script if it fails
 
@@ -271,7 +292,7 @@ aws cloudformation deploy \
 ```
 
 ### Install TOML
-```
+```bash
 gem install cfn-toml
 ```
 
