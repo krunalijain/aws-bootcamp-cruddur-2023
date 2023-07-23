@@ -7,18 +7,18 @@
 
 I created my Honeycomb account and created an environment and used that environment's API Key to connect my Cruddur application data with Honeycomb.
 To set the Honeycomb API Key as an environment variable in Gitpod I used these commands. 
-```
+```bash
 export HONEYCOMB_API_KEY="<your API key>"
 gp env HONEYCOMB_API_KEY="<your API key>"
 ```
 Then used this API Key in my `backend-flask` -> `docker-compose.yml` file 
-```
+```yaml
 OTEL_SERVICE_NAME: 'backend-flask'
       OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
       OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
 ```
 Added these code lines in `backend-flask` -> `requirements.txt` to install required packages to use OTEL services.
-```
+```txt
 opentelemetry-api 
 opentelemetry-sdk 
 opentelemetry-exporter-otlp-proto-http 
@@ -28,7 +28,7 @@ opentelemetry-instrumentation-requests
 Here's my `app.py` code required for Honeycomb
 
 - **To get required packages** 
-```
+```py
 from opentelemetry import trace
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.instrumentation.requests import RequestsInstrumentor
@@ -37,7 +37,7 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 ```
 - **Initialize tracing and an exporter that can send data to Honeycomb**
-```
+```py
 provider = TracerProvider()
 processor = BatchSpanProcessor(OTLPSpanExporter())
 provider.add_span_processor(processor)
@@ -45,7 +45,7 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 ```
 - **Add inside the 'app' to  Initialize automatic instrumentation with Flask**
-```
+```py
 FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
 
@@ -74,7 +74,7 @@ pip install aws-xray-sdk
 But in our bootcamp project we had added this module in our `requirements.txt` file and installed. 
 
 - Created our own Sampling Rule name 'Cruddur'. This code was written in `aws/json/xray.json` file
-```
+```json
 {
   "SamplingRule": {
       "RuleName": "Cruddur",
@@ -92,7 +92,7 @@ But in our bootcamp project we had added this module in our `requirements.txt` f
 }
 ```
 - **To create a new group for tracing and analyzing errors and faults in a Flask application.**
-```
+```py
 FLASK_ADDRESS="https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
 aws xray create-group \
    --group-name "Cruddur" \
@@ -101,12 +101,12 @@ aws xray create-group \
 The above code is useful for setting up monitoring for a specific Flask service using AWS X-Ray. It creates a group that can be used to visualize and analyze traces for that service, helping developers identify and resolve issues more quickly.
 
 Then run this command to get the above code executed 
-```
+```bash
 aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 ```
 - **Install Daemon Service**
 Then I had to add X-RAY Daemon Service for that I added this part of code in my `docker-compose.yml` file.
-```
+```yaml
  xray-daemon:
     image: "amazon/aws-xray-daemon"
     environment:
@@ -119,7 +119,7 @@ Then I had to add X-RAY Daemon Service for that I added this part of code in my 
       - 2000:2000/udp
 ```
 Also added Environment Variables :
-```
+```yaml
    AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
    AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
 ```
@@ -135,7 +135,7 @@ So, I was in the wrong directory (frontend-react-js) while performing this task.
 
 ## AWS X-RAY Subsegments
 There was a problem faced while creating subsegments in AWS X-RAY. But then one of our bootcamper (Olga Timofeeva) tried to figure it out and that somewhat helped. So we added `capture` method to get subsgements and closed the segment in the end by using `end-subsegment`. Below is the code that we added additionally to bring subsegments.
-```
+```py
 @app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
 @xray_recorder.capture('activities_show')
 def data_show_activity(activity_uuid):
@@ -148,14 +148,14 @@ After adding I got subsegments
 ## #3 CloudWatch
 For CLoudWatch I installed `watchtower` and imported `watchtower`, `logging` and `strftime from time`.
 Also set env vars in backend flask in `docker-compose.yml` 
-```
+```yaml
       AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
 ```
 
 - **Configured LOGGER to use CloudWatch**
-```
+```py
 # Configuring Logger to Use CloudWatch
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.DEBUG)
@@ -165,7 +165,7 @@ LOGGER.addHandler(console_handler)
 LOGGER.addHandler(cw_handler)
 LOGGER.info("some message")
 ```
-```
+```py
 @app.after_request
 def after_request(response):
     timestamp = strftime('[%Y-%b-%d %H:%M]')
@@ -189,16 +189,16 @@ export ROLLBAR_ACCESS_TOKEN=""
 gp env ROLLBAR_ACCESS_TOKEN=""
 ```
 - **Added to backend-flask for `docker-compose.yml`**
-```
+```yaml
 ROLLBAR_ACCESS_TOKEN: "${ROLLBAR_ACCESS_TOKEN}"
 ```
 - **Imported** for Rollbar
-```
+```py
 import rollbar
 import rollbar.contrib.flask
 from flask import got_request_exception
 ```
-```
+```py
 rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
 @app.before_first_request
 def init_rollbar():
@@ -217,7 +217,8 @@ def init_rollbar():
     got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 ```
 - **Added an endpoint just for testing rollbar to `app.py`**
-```@app.route('/rollbar/test')
+```py
+@app.route('/rollbar/test')
 def rollbar_test():
     rollbar.report_message('Hello World!', 'warning')
     return "Hello World!"
