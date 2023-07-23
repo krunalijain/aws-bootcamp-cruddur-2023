@@ -1,5 +1,23 @@
 # Week 2 — Distributed Tracing
 
+## Table of Contents
+- [Required Homework](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#required-homework)
+- [HONEYCOMB](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb)
+    - [To get required packages](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=To%20get%20required%20packages)
+    - [Initialize tracing and an exporter that can send data to Honeycomb](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=Initialize%20tracing%20and%20an%20exporter%20that%20can%20send%20data%20to%20Honeycomb)
+    - [Add inside the 'app' to Initialize automatic instrumentation with Flask](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=Add%20inside%20the%20%27app%27%20to%20Initialize%20automatic%20instrumentation%20with%20Flask)
+    - [Trace spans by hardcode](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=Trace%20spans%20by%20hardcode)
+- [AWS X-RAY](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#2-aws-x-ray)
+    - [Create a new group for tracing and analyzing errors and faults in a Flask application](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=create%20a%20new%20group%20for%20tracing%20and%20analyzing%20errors%20and%20faults%20in%20a%20Flask%20application.)
+    - [Install Daemon Service](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=Install%20Daemon%20Service)
+- [My X-RAY Error](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#my-x-ray-error)
+- [AWS X-RAY Subsegments](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#aws-x-ray-subsegments)
+- [CloudWatch](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#3-cloudwatch)
+    - [Configured LOGGER to use CloudWatch](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=Configured%20LOGGER%20to%20use%20CloudWatch)
+- [ROLLBAR](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#4-rollbar)
+- [Rollbar Error](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#rollbar-error)
+- [Pricing and Security Consideration Videos](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#5-watched-pricing-and-security-consideration-videos)
+
 ## Required Homework
 **Attended Live session : Observability** and understood the use of **Honeycomb**, which is an application used for logging and tracing data. Also used OTEL-Open Telemetry open source observability framework with Honeycomb to instrument traces and logs.
 
