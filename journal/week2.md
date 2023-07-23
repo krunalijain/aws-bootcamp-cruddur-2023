@@ -9,7 +9,7 @@
     - [Trace spans by hardcode](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=Trace%20spans%20by%20hardcode)
 - [AWS X-RAY](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#2-aws-x-ray)
     - [Create a new group for tracing and analyzing errors and faults in a Flask application](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=create%20a%20new%20group%20for%20tracing%20and%20analyzing%20errors%20and%20faults%20in%20a%20Flask%20application.)
-    - [Install Daemon Service](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=Install%20Daemon%20Service)
+    - [Install Daemon Service](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#1-honeycomb:~:text=Install%20Daemon%20Service) 
 - [My X-RAY Error](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#my-x-ray-error)
 - [AWS X-RAY Subsegments](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#aws-x-ray-subsegments)
 - [CloudWatch](https://github.com/krunalijain/aws-bootcamp-cruddur-2023/blob/main/journal/week2.md#3-cloudwatch)
