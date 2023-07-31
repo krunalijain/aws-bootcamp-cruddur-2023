@@ -198,7 +198,8 @@ Then I was able to see data in DynamoDB Table.
 ### Note
 But due to some network issues on my end, everytime while working on Prod-Env I have to keep switching my internet connection from WiFi -> Mobile Hotspot and then only I am able to see any Cruds or Post Cruds. And it works only for 1 second ad then again I am supposed to switch my network for working of the application. 
 
-
+### Solution for app on Production
+Need to edit `CONNECTION_URL` in `backend-flask.env` from Local environment to Prod environment.
 
 
 
